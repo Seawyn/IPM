@@ -1,0 +1,13 @@
+p{
+  margin:0;
+}
+div{
+  border: 1px solid black;
+  position: absolute;
+  top: 44%;
+  left:46%;
+  width:9.45em;
+  height:9.45em;
+  background: linear-gradient(to bottom, Salmon, AntiqueWhite);
+  /*background: AntiqueWhite*/
+}
