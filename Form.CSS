@@ -2,12 +2,25 @@ p{
   margin:0;
 }
 div{
+  text-align: center;
   border: 1px solid black;
   position: absolute;
   top: 44%;
   left:46%;
   width:9.45em;
   height:9.45em;
-  background: linear-gradient(to bottom, Salmon, AntiqueWhite);
-  /*background: AntiqueWhite*/
+  background: AntiqueWhite;
+}
+
+.button {
+  /*border: 1px #000000;*/
+  border-radius: 10%;
+  padding: 1.5em 3em;
+  background-color: AntiqueWhite;
+}
+
+.hardButton {
+  border: 1px solid #000000;
+  border-radius: 20%;
+  padding: 1em 0.2em;
 }

@@ -4,12 +4,31 @@
   <link rel="stylesheet" href="Form.css">
   <script src="Behavior.js"></script>
 </head>
-<body onload="getTime(); getDate()">
-  <div>
-    <img src="HighBattery.png" style="float:right;">
+<body onload="getTime(); getDate(); Startup();">
+  <button class="hardButton" style="position: absolute; top: 47%; left: 53.9%" onclick="Lock()"></button>
+  <button class="hardButton" style="position: absolute; top: 47%; left: 45.65%"></button>
+  <div id="Off" style="background-color: Black;"></div>
+  <div id="LockScreen">
+    <img src="HighBattery.png" style="float:right; position: relative; left: -1.5%">
+    <img src="Maps.png" style="float:right; position: relative; left: 2.5%">
     <br>
     <br>
     <p id="Time" style="text-align:center; font-size:2em;"></p>
     <p id="Date" style="text-align:center;"></p>
+    <button class="button" onclick="Unlock()"></button>
+  </div>
+  <div id="MainScreen">
+    <p id="Present" style="text-align:left; position: relative; top: 2%; left: 5%;"></p>
+    <img src="HighBattery.png" style="position: relative; top: -13%; left: 50%">
+    <img src="Maps.png" style="position: relative; top: -13%; left: 18%;">
+    <br>
+    <img src="Map-icon.png" style="height: 2.8em; width: 2.8em; position: relative; top: -10%; left: -10%" onclick="Display('Amigos')">
+    <img src="Cup-icon.png" style="height: 2.8em; width: 2.8em; position: relative; top: -10%;" onclick="Display('Bebidas')">
+    <br>
+    <img src="WC-icon.png" style="height: 2.8em; width: 2.8em; position: relative; top: -5%; left: -10%" onclick="Display('WC')">
+    <img src="Bell-icon.png" style="height: 2.8em; width: 2.8em; position: relative; top: -5%" onclick="Display('Notificacoes')">
+    <br>
+    <img src="Current.png" style="height: 0.8em; width: 0.8em; position: relative; top: -55%; left: 45%;">
+    <img src="Unoccupied.png" style="height: 0.8em; width: 0.8em; position: relative; top: -45%; left: 34%;">
   </div>
 </body>
