@@ -1,0 +1,10 @@
+</div>
+<div id="EcraPedidoWC">
+  <p id="Present" style="text-align:left; position: relative; top: 2%; left: 5%;"></p>
+  <img src="HighBattery.png" style="position: relative; top: -13%; left: 50%">
+  <img src="Maps.png" style="position: relative; top: -13%; left: 18%;">
+  <p style="position: relative; top: -15%; font-size:1em;"> Receber&aacute; uma notifica&ccedil;&atilde;o quando a WC estiver dispon&iacute;vel</p>
+
+  <p style="position: relative; top: -4%;"> WC a usar: <b>45</b></p>
+  <p style="position: relative; top: -5%;"> Tempo estimado: <b>5min</b></p>
+</div>
