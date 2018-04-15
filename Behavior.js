@@ -86,6 +86,12 @@ function Switch(current, toSwitch){
   }
 }
 
+function ChangeMyFriends(screen1, screen2){
+  var screen_aux = screen1;
+  screen1 = screen2;
+  screen2 = screen_aux;
+}
+
 function Goback(){
   var toSwitch = stack.pop();
   if (toSwitch != null){
