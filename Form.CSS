@@ -1,13 +1,7 @@
 p{
   margin:0;
 }
-
-hr{
-  opacity: 0.15;
-  color: #c6bbac;
-}
-
-.Altdiv{
+div{
   text-align: center;
   border: 1px solid black;
   position: absolute;
@@ -19,6 +13,7 @@ hr{
 }
 
 .button {
+  /*border: 1px #000000;*/
   border-radius: 10%;
   padding: 1.5em 3em;
   background-color: AntiqueWhite;
@@ -28,15 +23,4 @@ hr{
   border: 1px solid #000000;
   border-radius: 20%;
   padding: 1em 0.2em;
-}
-
-.atIcon {
-  text-align: justify;
-  width: 2.5em;
-  float: left;
-}
-
-.atIcon img{
-  display: block;
-  margin: 0 auto;
 }
