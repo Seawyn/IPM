@@ -46,8 +46,8 @@ function Startup(){
 function Switch(current, toSwitch){
   var Current = document.getElementById(current);
   var Switch = document.getElementById(toSwitch);
-  Current.style.display = 'hidden';
-  Switch.style.display = 'visible';
+  Current.style.setProperty("visibility", "hidden");
+  Switch.style.setProperty("visibility", "visible");
 }
 
 function Display(Name){
