@@ -1,7 +1,14 @@
 var locked;                                                                     //Variável que decide se o ecrã está bloqueado ou não
 var displayed = 0;                                                              //Variável que decide se os ícones do menu principal se encontram disponibilidados ou não
+var friendsdisplayed = 0;
 var currentScreen;                                                              //Variável que guarda o Id do ecrã em que o utilizador se encontra
 var stack = [];                                                                 //Variável que guarda os Ids dos ecrãs anteriores ao ecrã em que o utilizador se encontra
+
+var names = ["Antonio", "Ana", "Fernando", "Joao", "Jorge", "Pedro", "Rita", "Tiago", "Alice", "Mariana", "Teresa", "Paula", "Ines", "Francisco", "Miguel"];
+var added = [];
+var toAdd;
+var addedLength = 0;
+var lastDisplayed = 0;
 
 function getTime(){
   var el = document.getElementById("Time");
@@ -53,6 +60,16 @@ function IconDisplay(){
   }
 }
 
+function hideFriends(){
+  var Icon1 = document.getElementById("Locator1");
+  var Icon2 = document.getElementById("Locator2");
+  var Icon3 = document.getElementById("Locator3");
+  Locator1.style.setProperty("visibility", "hidden");
+  Locator2.style.setProperty("visibility", "hidden");
+  Locator3.style.setProperty("visibility", "hidden");
+  friendsdisplayed = 0;
+}
+
 function Unlock(){
   var Lock = document.getElementById("LockScreen");
   var Main = document.getElementById("MainScreen");
@@ -70,6 +87,8 @@ function Startup(){
   var Main = document.getElementById("Off");
   Off.style.setProperty("visibility", "visible");
   locked = true;
+  Place = document.getElementById("Placer");
+  Place.innerHTML = "Ainda nao adicionou nenhum amigo.";
 }
 
 function Switch(current, toSwitch){
@@ -84,12 +103,21 @@ function Switch(current, toSwitch){
     var Pel = document.getElementById("Present");
     Present.style.setProperty("visibility", "visible");
   }
-}
-
-function ChangeMyFriends(screen1, screen2){
-  var screen_aux = screen1;
-  screen1 = screen2;
-  screen2 = screen_aux;
+  if (toSwitch.id == 'SuccessfulConnection'){
+    addFriend();
+  }
+  if (current.id == 'SuccessfulConnection' && toSwitch.id == 'LocationMenu'){
+    stack.pop();
+    stack.pop();
+    stack.pop();
+  }
+  if (toSwitch.id == 'Locator'){
+    displayFriend();
+  }
+  if (toSwitch.id != 'Locator' && friendsdisplayed == 1){
+    window.alert("DUDE");
+    hideFriends();
+  }
 }
 
 function Goback(){
@@ -100,6 +128,9 @@ function Goback(){
     if (toSwitch == 'MainScreen'){
       IconDisplay();
     }
+    if (toSwitch.id != 'Locator' && friendsdisplayed == 1){
+      hideFriends();
+    }
     currentScreen = toSwitch;
   }
 }
@@ -107,6 +138,66 @@ function Goback(){
 function Display(Name){
   var message = Name + " will be displayed when I get to it."
   window.alert(message);
+}
+
+function giveRandom(){
+  var name = names[Math.floor((Math.random() * 14) + 1)];
+  toAdd = name;
+}
+
+function addFriend(){
+  giveRandom();
+  added[addedLength] = toAdd;
+  Place = document.getElementById("Placer");
+  if (addedLength == 0){
+    Place.innerHTML = "";
+  }
+  addedLength++;
+  HText = document.getElementById("Header");
+  HText.innerHTML = toAdd + " foi adicionado(a)!";
+  if (addedLength < 7){
+    if(addedLength == 0){
+      Place.innerHTML = toAdd + "<br>";
+    }
+    else
+      Place.innerHTML = Place.innerHTML + toAdd + "<br>";
+  }
+}
+
+function displayFriend(){
+  if (addedLength != 0){
+    if (addedLength > 0){
+      F1 = document.getElementById("Name1");
+      F1.innerHTML = added[0];
+      Loc1 = document.getElementById("Locator1");
+      Loc1.style.setProperty("visibility", "visible");
+      friendsdisplayed = 1;
+    }
+    if (addedLength > 1){
+      F2 = document.getElementById("Name2");
+      F2.innerHTML = added[1];
+      Loc2 = document.getElementById("Locator2");
+      Loc2.style.setProperty("visibility", "visible");
+    }
+    if (addedLength > 2){
+      F3 = document.getElementById("Name3");
+      F3.innerHTML = added[1];
+      Loc3 = document.getElementById("Locator3");
+      Loc3.style.setProperty("visibility", "visible");
+    }
+  }
+}
+
+function changeImage(number){
+  var image = document.getElementById("Main");
+  if (number == 0)
+    image.src = "Map.png";
+  else if (number == 1)
+    image.src = "MapToFriend1.png";
+  else if (number == 2)
+    image.src = "MapToFriend2.png";
+  else
+    image.src = "MapToFriend3.png";
 }
 
 function Lock(){

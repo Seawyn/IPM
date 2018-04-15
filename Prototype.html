@@ -53,61 +53,48 @@
 
   <!-- Ecrã de Amigos -->
   <div id="LocationMenu" class="Altdiv">
-   <p id="Time" style=text-align:left><img src="HighBattery.png" style="float: right; position: relative; left:-1.9%"></p>
-   <br>
-   <hr/>
-   <p style="text-align:left;font-size:1.15em;margin:1%" onclick="Switch(LocationMenu, FindFriendsExample)"> Encontrar Amigos </p><hr/>
-   <p style="text-align:left;font-size:1.15em;margin:1%" onclick="Switch(LocationMenu, MyFriendsEmpty)"> Lista de Amigos </p><hr/>
-   <p style="text-align:left;font-size:1.15em;margin:1%" onclick="Switch(LocationMenu, WifiAwait); setTimeout(function() { Switch(WifiAwait, SuccessfulConnection); }, 3000);"> Adicionar Amigos </p>
- </div>
- <div id="WifiAwait" class="Altdiv">
-   <p id="Time" style=text-align:left><img src="HighBattery.png" style="float: right; position: relative; left:-1.9%"></p>
-   <br><br>
-   <center><img src="Wifi.png" height=30% width=40%;>
-   <p style="text-align:middle;font-size:0.9em;"> Encoste o seu iRave ao do seu amigo e aguarde... </p>
-   </center>
- </div>
- <div id="SuccessfulConnection" class="Altdiv">
-   <p id="Time" style=text-align:left><img src="HighBattery.png" style="float: right; position: relative; left:-1.9%"></p>
-   <br><br>
-   <center><img src="CheckMark.png" height=45% width=45% align="middle";>
-   <br><br>
-   <p style="position: absolute; top: 67%; left: 13.0%;font-size:0.9em;"> Amigo adicionado!</p>
-   </center>
-   <button type="button" onclick="Switch(SuccessfulConnection, LocationMenu); ChangeMyFriends(MyFriendsEmpty, MyFriendsWithJohn)" style="position: absolute; top: 80%; left: 70.9%">OK</button>
-</div>
-<div id="MyFriendsWithJohn" class="Altdiv">
-  <p id="Time" style=text-align:left><img src="HighBattery.png" style="float: right; position: relative; left:-1.9%"></p>
-  <br>
-  <hr/>
-  <p style="font-size:1.15em; text-align:left;margin:3%">JOAO</p><hr/>
-  <button type="button" style="position: absolute; top: 78%; left: 2%;width:30%;height:20%;"><img src="TrashSymbol.png" width=78% height=78%></button>
-</div>
-<div id="MyFriendsEmpty" class="Altdiv">
-  <p id="Time" style=text-align:left><img src="HighBattery.png" style="float: right; position: relative; left:-1.9%"></p>
-  <br>
-  <hr/>
-  <br><br>
-  <p style="font-size:1.15em; position: absolute; top: 35%;">Ainda nao adicionou nenhum amigo.</p><hr/>
-</div>
-<div id="FindFriends" class="Altdiv">
-  <p id="Time" style=text-align:left><img src="HighBattery.png" style="float: right; position: relative; left:-1.9%"></p>
-  <br>
-  <hr/>
-  <img src="Map.png" height=80% width=100% align="middle"; style="position: absolute; top: 20%;left: 0%";>
-</div>
-<div id="FindFriendsExample" class="Altdiv">
-  <p id="Time" style=text-align:left><img src="HighBattery.png" style="float: right; position: relative; left:-1.9%"></p>
-  <br>
-  <hr/>
-  <img src="Map2.png" height=80% width=100% align="middle"; style="position: absolute; top: 20%;left: 0%";>
-</div>
-<div id="GoToJohn" class="Altdiv">
-  <p id="Time" style=text-align:left><img src="HighBattery.png" style="float: right; position: relative; left:-1.9%"></p>
-  <br>
-  <hr/>
-  <img src="MapWithJohn.png" height=80% width=100% align="middle"; style="position: absolute; top: 20%;left: 0%";>
-</div>
-
-
+    <img src="HighBattery.png" style="position: relative; left: 50%">
+    <img src="Maps.png" style="position: relative; left: 18%;">
+    <hr />
+    <p style="position: relative; top: -5%; text-align:left;font-size:1.15em;margin:1%" onclick="Switch(LocationMenu, Locator)"> Encontrar Amigos </p><hr/>
+    <p style="position: relative; top: -5%; text-align:left;font-size:1.15em;margin:1%" onclick="Switch(LocationMenu, Friends)"> Lista de Amigos </p><hr/>
+    <p style="position: relative; top: -5%; text-align:left;font-size:1.15em;margin:1%" onclick="Switch(LocationMenu, WifiAwait); setTimeout(function() { Switch(WifiAwait, SuccessfulConnection); }, 1000);"> Adicionar Amigos </p>
+  </div>
+  <div id="WifiAwait" class="Altdiv">
+    <img src="HighBattery.png" style="position: relative; left: 50%">
+    <img src="Maps.png" style="position: relative; left: 18%;">
+    <center><img src="Wifi.png" height=45% width=55% align="middle";>
+    <p style="text-align:middle;font-size:0.9em;"> Encoste o seu iRave ao do seu amigo e aguarde... </p>
+    </center>
+  </div>
+  <div id="SuccessfulConnection" class="Altdiv">
+    <img src="HighBattery.png" style="position: relative; left: 50%">
+    <img src="Maps.png" style="position: relative; left: 18%;">
+    <center><img src="CheckMark.png" height=40% width=40% align="middle";>
+    <p  id="Header" style="position: absolute; top: 53%; text-align:center; font-size:1em;"></p>
+    </center>
+    <button type="button" onclick="Switch(SuccessfulConnection, LocationMenu)" style="position: absolute; top: 80%; left: 70.9%">OK</button>
+  </div>
+  <div id="Friends" class="Altdiv">
+    <img src="HighBattery.png" style="position: relative; left: 50%">
+    <img src="Maps.png" style="position: relative; left: 18%;">
+    <p id="Placer"></p>
+  </div>
+  <div id="Locator" class="Altdiv">
+    <img src="HighBattery.png" style="position: relative; left: 50%">
+    <img src="Maps.png" style="position: relative; left: 18%;">
+    <img id="Main" src="Map.png" style="position: relative; top: -3%; height: 80%; width: 95%;" onclick="changeImage(0)">
+    <div id="Locator1" class="atIcon" style="position: relative; top: -30%; left: 35%" onclick="changeImage(1)">
+      <img src="Friend1.png" style="height: 25%; width: 25%; position: relative; top: -50%;">
+      <h id="Name1" style="text-align: center; font-size: 0.8em;"></h>
+    </div>
+    <div id="Locator2" class="atIcon" style="position: relative; top: -30%; left: 45%" onclick="changeImage(2)">
+      <img src="Friend2.png" style="height: 25%; width: 25%; position: relative; top: -50%;">
+      <h id="Name2" style="text-align: justify; font-size: 0.8em;"></h>
+    </div>
+    <div id="Locator3" class="atIcon" style="position: relative; top: -73%; left: -35%" onclick="changeImage(3)">
+      <img src="Friend3.png" style="height: 25%; width: 25%; position: relative; top: -50%;">
+      <h id="Name3" style="text-align: justify; font-size: 0.8em;"></h>
+    </div>
+  </div>
 </body>
