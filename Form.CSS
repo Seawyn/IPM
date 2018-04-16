@@ -1,5 +1,12 @@
 p{
   margin:0;
+  /*font: Georgia, serif;*/
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h{
+  /*font: Georgia, serif;*/
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 hr{

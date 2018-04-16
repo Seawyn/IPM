@@ -4,11 +4,12 @@ var friendsdisplayed = 0;
 var currentScreen;                                                              //Variável que guarda o Id do ecrã em que o utilizador se encontra
 var stack = [];                                                                 //Variável que guarda os Ids dos ecrãs anteriores ao ecrã em que o utilizador se encontra
 
-var names = ["Antonio", "Ana", "Fernando", "Joao", "Jorge", "Pedro", "Rita", "Tiago", "Alice", "Mariana", "Teresa", "Paula", "Ines", "Francisco", "Miguel"];
+var names = ["Ant&oacute;nio", "Ana", "Fernando", "Jo&atilde;o", "Jorge", "Pedro", "Rita", "Tiago", "Alice", "Mariana", "Teresa", "Paula", "In&ecirc;s", "Francisco", "Miguel"];
 var added = [];
 var toAdd;
 var addedLength = 0;
 var lastDisplayed = 0;
+var deleteMode = 0;
 
 function getTime(){
   var el = document.getElementById("Time");
@@ -88,7 +89,7 @@ function Startup(){
   Off.style.setProperty("visibility", "visible");
   locked = true;
   Place = document.getElementById("Placer");
-  Place.innerHTML = "Ainda nao adicionou nenhum amigo.";
+  Place.innerHTML = "Ainda n&atilde;o adicionou nenhum amigo.";
 }
 
 function Switch(current, toSwitch){
@@ -181,7 +182,7 @@ function displayFriend(){
     }
     if (addedLength > 2){
       F3 = document.getElementById("Name3");
-      F3.innerHTML = added[1];
+      F3.innerHTML = added[2];
       Loc3 = document.getElementById("Locator3");
       Loc3.style.setProperty("visibility", "visible");
     }
@@ -198,6 +199,20 @@ function changeImage(number){
     image.src = "MapToFriend2.png";
   else
     image.src = "MapToFriend3.png";
+}
+
+function changeMode(){
+  var Rem = document.getElementById("Remove");
+  if (deleteMode == 0){
+    Rem.style.setProperty("background-color", "White");
+    Rem.style.setProperty("border", "1px solid Black");
+    deleteMode = 1;
+  }
+  else{
+    Rem.style.setProperty("background-color", "Transparent");
+    Rem.style.setProperty("border", "none");
+    deleteMode = 0;
+  }
 }
 
 function Lock(){
