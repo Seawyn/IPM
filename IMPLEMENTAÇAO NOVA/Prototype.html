@@ -33,12 +33,12 @@
       <img src="Map-icon.png" style="height: 2.3em; width: 2.3em; position: relative;">
       <h style="text-align: justify; font-size: 0.8em;">Amigos</h>
     </div>
-    <div id="Bebidas" class="atIcon" onclick="Switch(MainScreen, DrinksMenu)" style="position: relative; top: -13%; left: 25%">
+    <div id="Bebidas" class="atIcon" onclick="Switch(MainScreen, DrinksMenu); AddCart()" style="position: relative; top: -13%; left: 25%">
       <img src="Cup-icon.png" style="height: 2.3em; width: 2.3em; position: relative;">
       <h style="text-align: justify; font-size: 0.8em;">Bebidas</h>
     </div>
     <br>
-    <div id="WC" class="atIcon" onclick="Display('WC')" style="position: relative; top: 15%; left: -48%">
+    <div id="WC" class="atIcon" onclick="Switch(MainScreen, MenuWC)" style="position: relative; top: 15%; left: -48%">
       <img src="WC-icon.png" style="height: 2.3em; width: 2.3em; position: relative;">
       <h style="text-align: center; font-size: 0.8em; position: relative; left: 25%">WC</h>
     </div>
@@ -108,7 +108,7 @@
 
   <!-- Ecrã das Bebidas -->
   <div id="DrinksMenu" class="Altdiv">
-    <p id="Present" style="text-align:left; position: relative; top: 2%; left: 5%;"></p>
+    <br>
     <img src="HighBattery.png" style="position: relative; top: -13%; left: 50%">
     <img src="Maps.png" style="position: relative; top: -13%; left: 18%;">
     <br>
@@ -121,8 +121,66 @@
     <br>
     <img src="cart.png" style="position: relative; top: -25%; left: -22%; width:30px; height:30px;"onclick="AddCart()">
     <p id="Total" style="text-align:left; position: relative; top: -43%; left: 0%;">Add</p>
-    <img src="notes.png" style="position: relative; top: -60%; left: 8%; width:30px; height:30px;">
-    <p style="text-align:left; position: relative; top: -80%; left: 70%;"> Pagar </p>
+    <img src="notes.png" style="position: relative; top: -60%; left: 8%; width:30px; height:30px;" onclick="Switch(DrinksMenu, PaymentMenu)">
+    <p style="text-align:left; position: relative; top: -80%; left: 70%;"onclick="Switch(DrinksMenu, PaymentMenu); ShowTotal(); ShowAmounts()"> Pagar </p>
+  </div>
+
+
+  <div id="PaymentMenu" class="Altdiv" >
+    <br>
+    <img src="HighBattery.png" style="position: relative; top: -13%; left: 50%">
+    <img src="Maps.png" style="position: relative; top: -13%; left: 18%;">
+    <br>
+    <p style="text-align:center; position: relative; top: -20%; left: 0%; font-size: 1.8em;">Conta </p>
+    <p id="BeerAmount" style="text-align:left; position: relative; top: -22%; left: 5%; font-size: 1em;"> 0 </p>
+    <p style="text-align:center; position: relative; top: -35%; left: -10%; font-size: 1em;"> Cerveja(s) </p>
+    <img src="minus.png" style="position: relative; top: -48%; left: 32%; width:20px; height:20px;" onclick="DecAmountBeer()">
+    <img src="plus.png" style="position: relative; top: -48%; left: 35%; width:20px; height:20px;" onclick="AddAmountBeer()">
+    <br>
+    <p id="SangriaAmount" style="text-align:left; position: relative; top: -44%; left: 5%; font-size: 1em;"> 0 </p>
+    <p style="text-align:center; position: relative; top: -57%; left: -10%; font-size: 1em;"> Sangria(s) </p>
+    <img src="minus.png" style="position: relative; top: -70%; left: 32%; width:20px; height:20px;" onclick="DecAmountSangria()">
+    <img src="plus.png" style="position: relative; top: -70%; left: 35%; width:20px; height:20px;" onclick="AddAmountSangria()">
+    <br>
+    <p style="text-align:left; position: relative; top: -60%; left: 0%; font-size: 1.3em;">Total:</p>
+    <p id="TotalDrinks" style="text-align:left; position: relative; top: -77%; left: 35%; font-size: 1.3em;"> 0 </p>
+    <p style="text-align:right; position: relative; top: -95%; left: 0%; font-size: 1em;" onclick="Switch(PaymentMenu, PaymentSuccessful)"> Pagar </p>
+    <img src="notes.png" style="position: relative; top: -112%; left: 10%; width:30px; height:30px;" onclick="Switch(PaymentMenu, PaymentSuccessful); ResetAmounts()">
+  </div>
+
+  <div id="PaymentSuccessful" class="Altdiv">
+    <br>
+    <img src="HighBattery.png" style="position: relative; top: -13%; left: 50%">
+    <img src="Maps.png" style="position: relative; top: -13%; left: 18%;">
+    <br>
+    <p style="position: relative; top: -10%; font-size:1em;"> Pagamento efetuado </p>
+    <p style="position: relative; top: 1%;"> Balc&atilde;o: <b>11</b></p>
+    <p style="position: relative; top: 0%;font-size:0.9em;"> Tempo estimado: <b>5min</b></p>
+    <button type="button" onclick="Switch(PaymentSuccessful, MainScreen)" style="position: absolute; top: 80%; left: 70.9%">OK</button>
+  </div>
+
+
+
+<!-- Ecrã da WC -->
+  <div id="MenuWC" class="Altdiv">
+    <br>
+    <img src="HighBattery.png" style="position: relative; top: -13%; left: 50%">
+    <img src="Maps.png" style="position: relative; top: -13%; left: 18%;">
+    <br>
+    <p style="text-align:center; font-size:2em;"> WC</p>
+    <br>
+    <button type="button" onclick="Switch(MenuWC, WCSuccessful)">Pedir WC</button>
+  </div>
+
+  <div id="WCSuccessful" class="Altdiv">
+    <br>
+    <img src="HighBattery.png" style="position: relative; top: -13%; left: 50%">
+    <img src="Maps.png" style="position: relative; top: -13%; left: 18%;">
+    <br>
+    <p style="position: relative; top: -10%; font-size:1.2em;"> WC reservado </p>
+    <p style="position: relative; top: 1%;"> WC a usar: <b>47</b></p>
+    <p style="position: relative; top: 0%;font-size:0.9em;"> Tempo estimado: <b>3min</b></p>
+    <button type="button" onclick="Switch(WCSuccessful, MainScreen)" style="position: absolute; top: 80%; left: 70.9%">OK</button>
   </div>
 
 </body>

@@ -31,6 +31,14 @@ function AddCart(){
   total.innerHTML = totalDrinks + "&euro;";
 }
 
+function ResetAmounts(){
+  amount = 0;                                                                 //variavel que aumenta com os sinais de mais e menos
+  drink = 0;                                                                  //variavel que decide a bebida a ser apresentada
+  totalPint = 0;                                                              //numero total de cervejas
+  totalSangria = 0;                                                           //numero total de sangrias
+  totalDrinks = 0; 
+}
+
 function resetAmount(){
   amount = 0;
   var total = document.getElementById("DrinkAmount");
@@ -65,10 +73,58 @@ function ChangeDrinkLeft(){
   }
 }
 
+function ShowTotal(){
+  var total = document.getElementById("TotalDrinks");
+  total.innerHTML = totalDrinks +"&euro;";
+}
+
 function AddAmount(){
   var total = document.getElementById("DrinkAmount");
   amount++;
   total.innerHTML = amount + "&euro;";
+}
+
+function ShowAmounts(){
+  var total = document.getElementById("BeerAmount");
+  var total1 = document.getElementById("SangriaAmount");
+  total.innerHTML = totalPint;
+  total1.innerHTML = totalSangria;
+}
+
+function DecAmountBeer(){
+  var total = document.getElementById("BeerAmount");
+  if(totalPint - 1 >=0){
+    totalPint--;
+    totalDrinks--;
+    total.innerHTML = totalPint ;
+    ShowTotal();
+  }
+}
+
+function AddAmountBeer(){
+  var total = document.getElementById("BeerAmount");
+  totalPint++;
+  totalDrinks++;
+  total.innerHTML = totalPint ;
+  ShowTotal();
+}
+
+function DecAmountSangria(){
+  var total = document.getElementById("SangriaAmount");
+  if(totalSangria - 1 >=0){
+    totalSangria--;
+    totalDrinks--;
+    total.innerHTML = totalSangria ;
+    ShowTotal();
+  }
+}
+
+function AddAmountSangria(){
+  var total = document.getElementById("SangriaAmount");
+  totalSangria++;
+  totalDrinks++;
+  total.innerHTML = totalSangria ;
+  ShowTotal();
 }
 
 function DecAmount(){
