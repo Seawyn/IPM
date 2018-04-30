@@ -10,6 +10,144 @@ var toAdd;
 var addedLength = 0;
 var lastDisplayed = 0;
 var deleteMode = 0;
+var following1 = 0;
+
+var amount = 0;                                                                 //variavel que aumenta com os sinais de mais e menos
+var drink = 0;                                                                  //variavel que decide a bebida a ser apresentada
+var totalPint = 0;                                                              //numero total de cervejas
+var totalSangria = 0;                                                           //numero total de sangrias
+var totalDrinks = 0;                                                            //numero total de bebidas
+
+var onQueue = 0;
+
+function AddCart(){
+  window.alert("Dude what");
+  var total = document.getElementById("Total");
+  if(drink == 0){
+    totalPint += amount;
+    totalDrinks += amount;
+  }
+  else if (drink == 1) {
+    totalSangria += amount;
+    totalDrinks += amount;
+  }
+  resetAmount();
+  total.innerHTML = totalDrinks + "&euro;";
+}
+
+function ResetAmounts(){
+  amount = 0;
+  drink = 0;
+  totalPint = 0;
+  totalSangria = 0;
+  totalDrinks = 0;
+}
+
+function resetAmount(){
+  amount = 0;
+  var total = document.getElementById("DrinkAmount");
+  total.innerHTML = amount+ "&euro;";
+}
+
+function ChangeDrinkRight(){
+  if(drink + 1 > 1){
+    drink = 0;
+    document.getElementById("Drink").src = "pint.png";
+    document.getElementById("DrinkAmount").innerHTML = totalPint;
+  }
+  else{
+    drink++;
+    document.getElementById("Drink").src = "sangria.png";
+    document.getElementById("DrinkAmount").innerHTML = totalSangria;
+  }
+}
+
+function ChangeDrinkLeft(){
+  if(drink - 1 < 0){
+    drink = 1;
+    document.getElementById("Drink").src = "sangria.png";
+    document.getElementById("DrinkAmount").innerHTML = totalSangria;
+  }
+  else{
+    drink--;
+    document.getElementById("Drink").src = "pint.png";
+    document.getElementById("DrinkAmount").innerHTML = totalPint;
+  }
+}
+
+function ShowTotal(){
+  var total = document.getElementById("TotalDrinks");
+  total.innerHTML = totalDrinks +"&euro;";
+}
+
+function AddAmount(){
+  if (drink == 0){
+    AddAmountBeer();
+  }
+  else{
+    AddAmountSangria();
+  }
+}
+
+function DecAmount(){
+  if (drink == 0){
+    DecAmountBeer();
+  }
+  else{
+    DecAmountSangria();
+  }
+}
+
+function ShowAmounts(){
+  var total = document.getElementById("BeerAmount");
+  var total1 = document.getElementById("SangriaAmount");
+  total.innerHTML = totalPint;
+  total1.innerHTML = totalSangria;
+}
+
+function DecAmountBeer(){
+  var total = document.getElementById("BeerAmount");
+  var all = document.getElementById("DrinkAmount");
+  if(totalPint - 1 >=0){
+    totalPint--;
+    totalDrinks--;
+    total.innerHTML = totalPint;
+    all.innerHTML = totalPint;
+    ShowTotal();
+  }
+}
+
+function AddAmountBeer(){
+  var total = document.getElementById("BeerAmount");
+  var all = document.getElementById("DrinkAmount");
+  totalPint++;
+  totalDrinks++;
+  total.innerHTML = totalPint;
+  all.innerHTML = totalPint;
+  ShowTotal();
+}
+
+function DecAmountSangria(){
+  var total = document.getElementById("SangriaAmount");
+  var all = document.getElementById("DrinkAmount");
+  if(totalSangria - 1 >=0){
+    totalSangria--;
+    totalDrinks--;
+    total.innerHTML = totalSangria;
+    all.innerHTML = totalSangria;
+    ShowTotal();
+  }
+}
+
+function AddAmountSangria(){
+  var total = document.getElementById("SangriaAmount");
+  var all = document.getElementById("DrinkAmount");
+  totalSangria++;
+  totalDrinks++;
+  total.innerHTML = totalSangria;
+  all.innerHTML = totalSangria;
+  ShowTotal();
+}
 
 function getTime(){
   var el = document.getElementById("Time");
@@ -116,8 +254,22 @@ function Switch(current, toSwitch){
     displayFriend();
   }
   if (toSwitch.id != 'Locator' && friendsdisplayed == 1){
-    window.alert("DUDE");
     hideFriends();
+  }
+  if (toSwitch.id == 'WCSuccessful'){
+    if (onQueue == 0){
+      onQueue = 1;
+    }
+    else{
+      var text = document.getElementById("Place");
+      text.style.setProperty("visibility", "hidden");
+      var status = document.getElementById("TextStatus");
+      status.innerHTML = "J&aacute; se encontra na fila";
+      var waitingtime = document.getElementById("QueueTime");
+      waitingtime.style.setProperty("top", "-20%");
+      var button = document.getElementById("QueueButton");
+      button.style.setProperty("top", "-17.5%");
+    }
   }
 }
 
@@ -199,6 +351,18 @@ function changeImage(number){
     image.src = "MapToFriend2.png";
   else
     image.src = "MapToFriend3.png";
+}
+
+function followArtist1(){
+  var image = document.getElementById("Box1");
+  if (!following1){
+    image.src = "CheckmarkInBox.png";
+    following1 = 1;
+  }
+  else {
+    image.src = "Box.png";
+    following1 = 0;
+  }
 }
 
 function changeMode(){

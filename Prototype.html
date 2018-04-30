@@ -7,7 +7,7 @@
 <body onload="getTime(); getDate(); Startup();">
   <button class="hardButton" style="position: absolute; top: 47%; left: 53.93%" onclick="Lock()"></button>
   <button class="hardButton" style="position: absolute; top: 47%; left: 45.65%" onclick="Goback()"></button>
-  <p id="Present" style="text-align:left; position: absolute; top: 44.5%; left: 46.4%; z-index: 1; visibility: hidden;"></p>
+  <b id="Present" style="text-align:left; position: absolute; top: 44.5%; left: 46.4%; z-index: 1; visibility: hidden;"></b>
 
   <!-- Ecrã desligado -->
   <div id="Off" style="background-color: Black;" class="Altdiv"></div>
@@ -29,22 +29,22 @@
     <img src="HighBattery.png" style="position: relative; top: -13%; left: 49.5%">
     <img src="Maps.png" style="position: relative; top: -13%; left: 18%;">
     <br>
-    <div id="Amigos" class="atIcon" onclick="Switch(MainScreen, LocationMenu)" style="position: relative; top: -13%; left: 5%;">
-      <img src="Map-icon.png" style="height: 2.3em; width: 2.3em; position: relative;">
-      <h style="text-align: justify; font-size: 0.8em;">Amigos</h>
+    <div id="Amigos" class="atIcon" onclick="Switch(MainScreen, LocationMenu)" style="position: relative; top: -14.5%; left: 5%;">
+      <img src="ChangedMap-icon.png" style="height: 2.5em; width: 2.5em; position: relative;">
+      <b style="text-align: justify; font-size: 0.8em; position: relative; left: -5%;">Amigos</b>
     </div>
-    <div id="Bebidas" class="atIcon" onclick="Display('Bebidas')" style="position: relative; top: -13%; left: 25%">
-      <img src="Cup-icon.png" style="height: 2.3em; width: 2.3em; position: relative;">
-      <h style="text-align: justify; font-size: 0.8em;">Bebidas</h>
+    <div id="Bebidas" class="atIcon" onclick="Switch(MainScreen, DrinksMenu)" style="position: relative; top: -14%; left: 25%">
+      <img src="ChangedCup-icon.png" style="height: 2.5em; width: 2.5em;">
+      <b style="text-align: justify; font-size: 0.8em; position: relative; top: -10%; left: -15%;">Bebidas</b>
     </div>
     <br>
-    <div id="WC" class="atIcon" onclick="Display('WC')" style="position: relative; top: 15%; left: -48%">
-      <img src="WC-icon.png" style="height: 2.3em; width: 2.3em; position: relative;">
-      <h style="text-align: center; font-size: 0.8em; position: relative; left: 25%">WC</h>
+    <div id="WC" class="atIcon" onclick="Switch(MainScreen, MenuWC)" style="position: relative; top: 15%; left: -48%">
+      <img src="WC-icon.png" style="height: 2.5em; width: 2.5em; position: relative;">
+      <b style="text-align: center; font-size: 0.8em; position: relative; left: 25%">WC</b>
     </div>
-    <div id="Notificacoes" class="atIcon" onclick="Display('Notifica&ccedil;&otilde;es')" style="position: relative; top: -21.9%; left: 51%">
-      <img src="Bell-icon.png" style="height: 2.3em; width: 2.3em; position: relative; top: -5%">
-      <h style="text-align: justify; font-size: 0.8em; position: relative; left: -31%">Notifica&ccedil;&otilde;es</h>
+    <div id="Notificacoes" class="atIcon" onclick="Switch(MainScreen, Notifications)" style="position: relative; top: -24.4%; left: 51%">
+      <img src="Bell-icon.png" style="height: 2.5em; width: 2.5em; position: relative; top: -5%">
+      <b style="text-align: justify; font-size: 0.8em; position: relative; left: -40%">Notifica&ccedil;&otilde;es</b>
     </div>
     <br>
     <img src="Current.png" style="height: 0.8em; width: 0.8em; position: relative; top: -15%; left: 5%;">
@@ -52,7 +52,7 @@
   </div>
 
   <!-- Ecrã de Amigos -->
-  <div id="LocationMenu" class="Altdiv">
+  <div id="LocationMenu" class="Altdiv" style="background-color: #ffb3b3;">
     <img src="HighBattery.png" style="position: relative; left: 50%">
     <img src="Maps.png" style="position: relative; left: 18%;">
     <hr />
@@ -60,14 +60,14 @@
     <p style="position: relative; top: -5%; text-align:left;font-size:1.15em;margin:1%" onclick="Switch(LocationMenu, Friends)"> Lista de Amigos </p><hr/>
     <p style="position: relative; top: -5%; text-align:left;font-size:1.15em;margin:1%" onclick="Switch(LocationMenu, WifiAwait); setTimeout(function() { Switch(WifiAwait, SuccessfulConnection); }, 1000);"> Adicionar Amigos </p>
   </div>
-  <div id="WifiAwait" class="Altdiv">
+  <div id="WifiAwait" class="Altdiv" style="background-color: #ffb3b3;">
     <img src="HighBattery.png" style="position: relative; left: 50%">
     <img src="Maps.png" style="position: relative; left: 18%;">
     <center><img src="Wifi.png" height=45% width=55% align="middle";>
     <p style="text-align:center;font-size:0.8em;"> Encoste o seu iRave ao do seu amigo e aguarde... </p>
     </center>
   </div>
-  <div id="SuccessfulConnection" class="Altdiv">
+  <div id="SuccessfulConnection" class="Altdiv" style="background-color: #ffb3b3;">
     <img src="HighBattery.png" style="position: relative; left: 50%">
     <img src="Maps.png" style="position: relative; left: 18%;">
     <center><img src="CheckMark.png" height=40% width=40% align="middle";>
@@ -75,13 +75,12 @@
     </center>
     <button type="button" onclick="Switch(SuccessfulConnection, LocationMenu)" style="position: absolute; top: 80%; left: 70.9%">OK</button>
   </div>
-  <div id="Friends" class="Altdiv">
+  <div id="Friends" class="Altdiv" style="background-color: #ffb3b3;">
     <img src="HighBattery.png" style="position: relative; left: 50%">
     <img src="Maps.png" style="position: relative; left: 18%;">
     <p id="Placer"></p>
-    <!--<img id="Remove" src="TrashSymbol.png" style="height: 1.5em; width: 1.5em; position: relative; top: 35%; left: -40%;" onclick="changeMode();">-->
   </div>
-  <div id="Locator" class="Altdiv">
+  <div id="Locator" class="Altdiv" style="background-color: #ffb3b3;">
     <img src="HighBattery.png" style="position: relative; left: 50%">
     <img src="Maps.png" style="position: relative; left: 18%;">
     <img id="Main" src="Map.png" style="position: relative; top: -3%; height: 80%; width: 95%;" onclick="changeImage(0)">
@@ -99,9 +98,97 @@
     </div>
   </div>
 
+  <!-- Ecrã de Bebidas -->
+  <div id="DrinksMenu" class="Altdiv" style="background-color: #70dbdb;">
+    <br>
+    <img src="HighBattery.png" style="position: relative; top: -13%; left: 50%">
+    <img src="Maps.png" style="position: relative; top: -13%; left: 18%;">
+    <br>
+    <img src="left-arrow.png" style="position: relative; top: -20%; left: -5%; width:1.25em; height:1.25em;"onclick="ChangeDrinkLeft()">
+    <img id ="Drink" src="pint.png" style="position: relative; top: -15%; left: 0%; width:2.5em; height:2.5em;">
+    <img src="right-arrow.png" style="position: relative; top: -20%; left: 5%; width:1.25em; height:1.25;" onclick="ChangeDrinkRight()">
+    <p id="DrinkAmount" style="text-align:center; position: relative; top: -10%; left: 0%;">0</p>
+    <img src="plus.png" style="position: relative; top: -23%; left: 30%; width:20px; height:20px;" onclick="AddAmount()">
+    <img src="minus.png" style="position: relative; top: -23%; left: -30%; width:20px; height:20px;" onclick="DecAmount()">
+    <br>
+    <button class="button" style="position: relative; top: -20%;" onclick="Switch(DrinksMenu, PaymentMenu)"><b>Carrinho</b></button>
+  </div>
+  <div id="PaymentMenu" class="Altdiv" style="background-color: #70dbdb;">
+  <br>
+  <img src="HighBattery.png" style="position: relative; top: -13%; left: 50%">
+  <img src="Maps.png" style="position: relative; top: -13%; left: 18%;">
+  <br>
+  <p style="text-align:center; position: relative; top: -17%; left: 0%; font-size: 1.3em;">Conta</p>
+  <p id="BeerAmount" style="text-align:left; position: relative; top: -14%; left: 8%; font-size: 1em;"> 0 </p>
+  <p style="text-align:center; position: relative; top: -27%; left: -5%; font-size: 1em;"> Cerveja(s) </p>
+  <br>
+  <p id="SangriaAmount" style="text-align:left; position: relative; top: -36%; left: 8%; font-size: 1em;"> 0 </p>
+  <p style="text-align:center; position: relative; top: -49%; left: -5%; font-size: 1em;"> Sangria(s) </p>
+  <br>
+  <p style="text-align:left; position: relative; top: -50%; left: 0%; font-size: 1.3em;">Total:</p>
+  <p id="TotalDrinks" style="text-align:left; position: relative; top: -66.25%; left: 35%; font-size: 1.3em;">0&euro;</p>
+  <button class="button" style="padding: 0.3em 0.5em; position: relative; top: -87%; left: 30%; font-size: 1em;" onclick="Switch(PaymentMenu, PaymentSuccessful); ResetAmounts()">Pagar</button>
+</div>
+<div id="PaymentSuccessful" class="Altdiv" style="background-color: #70dbdb;">
+  <br>
+  <img src="HighBattery.png" style="position: relative; top: -13%; left: 50%">
+  <img src="Maps.png" style="position: relative; top: -13%; left: 18%;">
+  <br>
+  <p style="position: relative; top: -10%; font-size:1em;"> Pagamento efetuado </p>
+  <p style="position: relative; top: -4%;"> Balc&atilde;o: <b>11</b></p>
+  <p style="position: relative; top: -5%;font-size:0.9em;"> Tempo estimado: <b>5min</b></p>
+  <button class="button" onclick="Switch(PaymentSuccessful, MainScreen)" style="position: relative; top: 2%;">OK</button>
+</div>
+
+  <!-- Ecrã da WC -->
+    <div id="MenuWC" class="Altdiv" style="background-color: #a3a3c2">
+      <br>
+      <img src="HighBattery.png" style="position: relative; top: -13%; left: 50%">
+      <img src="Maps.png" style="position: relative; top: -13%; left: 18%;">
+      <br>
+      <p style="text-align:center; font-size:2em;"> WC</p>
+      <br>
+      <button class="button" type="button" style="background-color: #8585ad" onclick="Switch(MenuWC, WCSuccessful)">Pedir WC</button>
+    </div>
+    <div id="WCSuccessful" class="Altdiv" style="background-color: #a3a3c2">
+      <br>
+      <img src="HighBattery.png" style="position: relative; top: -13%; left: 50%">
+      <img src="Maps.png" style="position: relative; top: -13%; left: 18%;">
+      <br>
+      <p id="TextStatus" style="position: relative; top: -10%; font-size:1.2em;"> WC reservado </p>
+      <p id="Place" style="position: relative; top: -4%;"> WC a usar: <b>47</b></p>
+      <p id="QueueTime" style="position: relative; top: -5%;font-size:0.9em;"> Tempo estimado: <b>3min</b></p>
+      <button id="QueueButton" class="button" style="background-color: #8585ad; position: relative; top: -2.5%;" onclick="Switch(WCSuccessful, MainScreen)">OK</button>
+  </div>
+
   <!-- Ecrã de Notificações -->
-  <div id="Notifications" class="Altdiv">
+  <div id="Notifications" class="Altdiv" style="background-color: #b9cf6e;">
     <img src="HighBattery.png" style="position: relative; left: 50%">
     <img src="Maps.png" style="position: relative; left: 18%;">
+    <hr />
+    <p style="font-size: 1.5em;" onclick="Switch(Notifications, News)">Not&iacute;cias</p>
+    <hr />
+    <p style="font-size: 1.5em;" onclick="Switch(Notifications, Playbill)">Cartaz</p>
+  </div>
+  <div id="News" class="Altdiv" style="background-color: #b9cf6e;">
+    <img src="HighBattery.png" style="position: relative; left: 50%">
+    <img src="Maps.png" style="position: relative; left: 18%;">
+    <hr />
+    <b id="News1_1"><ins>King Krule atua hoje</ins></b>
+    <hr />
+    <b id="News2_1"><ins>Atua&ccedil;&atilde;o de The National adiada 1 hora</ins></b>
+    <hr />
+  </div>
+  <div id="Playbill" class="Altdiv" style="background-color: #b9cf6e;">
+    <img src="HighBattery.png" style="position: relative; left: 50%">
+    <img src="Maps.png" style="position: relative; left: 18%;">
+    <hr />
+    <p style="text-align: left; margin: 5%; font-size:1.2em;">King Krule<img src="Box.png" id="Box1" onclick="followArtist1()" style="height: 1.4em; width: 1.4em; position: relative; align: bottom; left: 10%;"></p>
+    <hr />
+    <p style="text-align: left; margin: 5%; font-size:1.2em;">Voxtrot<img src="Box.png" style="height: 1.35em; width: 1.45em; position: relative; align: bottom; left: 30.9%;"></p>
+    <hr />
+    <p style="text-align: left; margin: 5%; font-size:1.2em;">TV Girl<img src="Box.png" style="height: 1.35em; width: 1.45em; position: relative; align: bottom; left: 30.9%;"></p>
+    <hr />
+    <p style="text-align: left; margin: 5%; font-size:1.2em;">The National<img src="Box.png" style="height: 1.4em; width: 1.4em; position: relative; align: bottom; left: 10%;"></p>
   </div>
 </body>

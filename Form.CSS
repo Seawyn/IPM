@@ -1,17 +1,25 @@
 p{
   margin:0;
-  /*font: Georgia, serif;*/
   font-family: Arial, Helvetica, sans-serif;
 }
 
 h{
-  /*font: Georgia, serif;*/
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+b{
   font-family: Arial, Helvetica, sans-serif;
 }
 
 hr{
   opacity: 0.15;
   color: #c6bbac;
+}
+
+.Parentdiv{
+  width: 10.45em;
+  height: 10.45em;
+  overflow: hidden;
 }
 
 .Altdiv{
@@ -23,12 +31,14 @@ hr{
   width:9.45em;
   height:9.45em;
   background: AntiqueWhite;
-}
+  overflow: hidden;
+  }
 
 .button {
-  border-radius: 10%;
-  padding: 1.5em 3em;
-  background-color: AntiqueWhite;
+  border-radius: 20%;
+  padding: 0.75em 1.75em;
+  border: none;
+  background-color: #2eb8b8;
 }
 
 .hardButton {
