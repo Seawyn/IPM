@@ -16,22 +16,25 @@ hr{
   color: #c6bbac;
 }
 
-.Parentdiv{
-  width: 10.45em;
-  height: 10.45em;
-  overflow: hidden;
+.Borderdiv{
+  height: 11em;
+  width: 11em;
+  background: gray;
+  z-index: -1;
+  border-radius: 10%;
 }
 
 .Altdiv{
   text-align: center;
   border: 1px solid black;
   position: absolute;
-  top: 44%;
-  left:46%;
-  width:9.45em;
+  top: 7%;
+  left:7%;
   height:9.45em;
+  width:9.45em;
   background: AntiqueWhite;
   overflow: hidden;
+  border-radius: 5%;
   }
 
 .button {
@@ -43,8 +46,9 @@ hr{
 
 .hardButton {
   border: 1px solid #000000;
+  z-index: 1;
   border-radius: 20%;
-  padding: 1em 0.2em;
+  padding: 1.2em 0.4em;
 }
 
 .atIcon {

@@ -20,6 +20,10 @@ var totalDrinks = 0;                                                            
 
 var onQueue = 0;
 
+var ArtistsDisplayed = 0;
+
+var LocationStatus = 1;
+
 function AddCart(){
   window.alert("Dude what");
   var total = document.getElementById("Total");
@@ -114,6 +118,7 @@ function DecAmountBeer(){
     total.innerHTML = totalPint;
     all.innerHTML = totalPint;
     ShowTotal();
+    verifyDrinks();
   }
 }
 
@@ -125,6 +130,7 @@ function AddAmountBeer(){
   total.innerHTML = totalPint;
   all.innerHTML = totalPint;
   ShowTotal();
+  verifyDrinks();
 }
 
 function DecAmountSangria(){
@@ -136,6 +142,7 @@ function DecAmountSangria(){
     total.innerHTML = totalSangria;
     all.innerHTML = totalSangria;
     ShowTotal();
+    verifyDrinks();
   }
 }
 
@@ -147,6 +154,32 @@ function AddAmountSangria(){
   total.innerHTML = totalSangria;
   all.innerHTML = totalSangria;
   ShowTotal();
+  verifyDrinks();
+}
+
+function verifyDrinks(){
+  var button = document.getElementById("DrinksButton");
+  if (totalDrinks == 0){
+    button.disabled = true;
+    button.style.setProperty("opacity", "0.5");
+  }
+  else{
+    button.disabled = false;
+    button.style.setProperty("opacity", "1");
+  }
+}
+
+function resetDrinks(){
+  var all = document.getElementById("DrinkAmount");
+  var Pint = document.getElementById("BeerAmount");
+  var Sangria = document.getElementById("SangriaAmount");
+  totalDrinks = 0;
+  totalPint = 0;
+  totalSangria = 0;
+  ShowTotal();
+  all.innerHTML = totalDrinks;
+  Pint.innerHTML = totalPint;
+  Sangria.innerHTML = totalSangria;
 }
 
 function getTime(){
@@ -178,24 +211,65 @@ function getDate(){
     el.innerHTML = day + "/" + month + "/" + year;
 }
 
+function ScrollDetect(){
+  var ScrollArea = document.getElementById("MenuScroll");
+  var TopPart = document.getElementById("TopPart");
+  var BottomPart = document.getElementById("BottomPart");
+  if (ScrollArea.scrollTop > 20){
+    TopPart.src = "Unoccupied.png";
+    BottomPart.src = "Current.png";
+  }
+  else {
+    TopPart.src = "Current.png";
+    BottomPart.src = "Unoccupied.png";
+  }
+}
+
 function IconDisplay(){
+  var ScrollArea = document.getElementById("MenuScroll");
   var Icon1 = document.getElementById("Amigos");
   var Icon2 = document.getElementById("Bebidas");
   var Icon3 = document.getElementById("WC");
   var Icon4 = document.getElementById("Notificacoes");
+  var Icon5 = document.getElementById("Definicoes");
   if (displayed == 0){
+    ScrollArea.style.setProperty("visibility", "visible");
     Amigos.style.setProperty("visibility", "visible");
     Bebidas.style.setProperty("visibility", "visible");
     WC.style.setProperty("visibility", "visible");
     Notificacoes.style.setProperty("visibility", "visible");
+    Definicoes.style.setProperty("visibility", "visible");
     displayed = 1;
   }
   else {
+    ScrollArea.style.setProperty("visibility", "hidden");
     Amigos.style.setProperty("visibility", "hidden");
     Bebidas.style.setProperty("visibility", "hidden");
     WC.style.setProperty("visibility", "hidden");
     Notificacoes.style.setProperty("visibility", "hidden");
+    Definicoes.style.setProperty("visibility", "hidden");
     displayed = 0;
+  }
+}
+
+function ArtistDisplay(){
+  var Artist1 = document.getElementById("Artist1");
+  var Artist2 = document.getElementById("Artist2");
+  var Artist3 = document.getElementById("Artist3");
+  var Artist4 = document.getElementById("Artist4");
+  if (ArtistsDisplayed == 0){
+    Artist1.style.setProperty("visibility", "visible");
+    Artist2.style.setProperty("visibility", "visible");
+    Artist3.style.setProperty("visibility", "visible");
+    Artist4.style.setProperty("visibility", "visible");
+    ArtistsDisplayed = 1;
+  }
+  else{
+    Artist1.style.setProperty("visibility", "hidden");
+    Artist2.style.setProperty("visibility", "hidden");
+    Artist3.style.setProperty("visibility", "hidden");
+    Artist4.style.setProperty("visibility", "hidden");
+    ArtistsDisplayed = 0;
   }
 }
 
@@ -225,6 +299,8 @@ function Startup(){
     divs[i].style.setProperty("visibility", "hidden");
   var Main = document.getElementById("Off");
   Off.style.setProperty("visibility", "visible");
+  var Border = document.getElementById("Border");
+  Border.style.setProperty("visibility", "visible");
   locked = true;
   Place = document.getElementById("Placer");
   Place.innerHTML = "Ainda n&atilde;o adicionou nenhum amigo.";
@@ -242,8 +318,22 @@ function Switch(current, toSwitch){
     var Pel = document.getElementById("Present");
     Present.style.setProperty("visibility", "visible");
   }
+
+  if (toSwitch.id == 'WifiAwait'){
+    if (LocationStatus != 0) {
+      setTimeout(function() { Switch(WifiAwait, SuccessfulConnection); }, 1000);
+    }
+    else {
+      verifyLocation();
+    }
+  }
   if (toSwitch.id == 'SuccessfulConnection'){
-    addFriend();
+    if (LocationStatus != 0){
+      addFriend();
+    }
+    else {
+      verifyLocation();
+    }
   }
   if (current.id == 'SuccessfulConnection' && toSwitch.id == 'LocationMenu'){
     stack.pop();
@@ -251,10 +341,24 @@ function Switch(current, toSwitch){
     stack.pop();
   }
   if (toSwitch.id == 'Locator'){
-    displayFriend();
+    if (LocationStatus != 0){
+      displayFriend();
+    }
+    else {
+      verifyLocation();
+    }
   }
   if (toSwitch.id != 'Locator' && friendsdisplayed == 1){
     hideFriends();
+  }
+  if (toSwitch.id == 'PaymentMenu'){
+    verifyDrinks();
+  }
+  if (current.id == 'PaymentSuccessful' && toSwitch.id == 'MainScreen'){
+    resetDrinks();
+    stack.pop();
+    stack.pop();
+    stack.pop();
   }
   if (toSwitch.id == 'WCSuccessful'){
     if (onQueue == 0){
@@ -271,6 +375,21 @@ function Switch(current, toSwitch){
       button.style.setProperty("top", "-17.5%");
     }
   }
+  if (toSwitch.id == 'News'){
+    var ScrollArea = document.getElementById("NewsScroll");
+    ScrollArea.style.setProperty("visibility", "visible");
+  }
+  if (toSwitch.id == 'Playbill'){
+    ArtistDisplay();
+    var Pel = document.getElementById("Present");
+    Pel.style.setProperty("color", "#b9cf6e");
+    var ScrollArea = document.getElementById("PlaybillScroll");
+    ScrollArea.style.setProperty("visibility", "visible");
+  }
+  else {
+    var Pel = document.getElementById("Present");
+    Pel.style.setProperty("color", "black");
+  }
 }
 
 function Goback(){
@@ -283,6 +402,17 @@ function Goback(){
     }
     if (toSwitch.id != 'Locator' && friendsdisplayed == 1){
       hideFriends();
+    }
+    if (currentScreen.id == 'News'){
+      var ScrollArea = document.getElementById("NewsScroll");
+      ScrollArea.style.setProperty("visibility", "hidden");
+    }
+    if (currentScreen.id == 'Playbill'){
+      ArtistDisplay();
+      var Pel = document.getElementById("Present");
+      Pel.style.setProperty("color", "black");
+      var ScrollArea = document.getElementById("PlaybillScroll");
+      ScrollArea.style.setProperty("visibility", "hidden");
     }
     currentScreen = toSwitch;
   }
@@ -302,6 +432,7 @@ function addFriend(){
   giveRandom();
   added[addedLength] = toAdd;
   Place = document.getElementById("Placer");
+  Place.style.setProperty("top", "0%");
   if (addedLength == 0){
     Place.innerHTML = "";
   }
@@ -353,6 +484,14 @@ function changeImage(number){
     image.src = "MapToFriend3.png";
 }
 
+function verifyLocation(){
+  var Screen = document.getElementById("NoLocation");
+  if (LocationStatus == 0){
+    Switch(currentScreen, Screen);
+    stack.pop();
+  }
+}
+
 function followArtist1(){
   var image = document.getElementById("Box1");
   if (!following1){
@@ -379,16 +518,41 @@ function changeMode(){
   }
 }
 
+function changeLocationStatus(){
+  var Slider = document.getElementById("LocationSlider");
+  var LocationIcon = document.getElementById("Location");
+  if (LocationStatus == 0){
+    Slider.src = "SliderRight-icon.png";
+    LocationIcon.style.setProperty("visibility", "visible");
+    LocationStatus = 1;
+  }
+  else {
+    Slider.src = "SliderLeft-icon.png";
+    LocationIcon.style.setProperty("visibility", "hidden");
+    LocationStatus = 0;
+  }
+}
+
 function Lock(){
   displayed = 0;
   var Pel = document.getElementById("Present");
+  Present.style.setProperty("color", "black");
   Present.style.setProperty("visibility", "hidden");
   if (locked == false){
     var divs = document.getElementsByTagName("div");
     for (var i = 0; i < divs.length; i++)
       divs[i].style.setProperty("visibility", "hidden");
+    var Border = document.getElementById("Border");
+    Border.style.setProperty("visibility", "visible");
     var Screen = document.getElementById("Off");
     Off.style.setProperty("visibility", "visible");
+    if (LocationStatus == 1){
+      var LocationIcon = document.getElementById("Location");
+      LocationIcon.style.setProperty("visibility", "hidden");
+    }
+    while (stack.length != 0){
+      stack.pop();
+    }
     locked = true;
   }
   else{
@@ -396,6 +560,10 @@ function Lock(){
     Off.style.setProperty("visibility", "hidden");
     var Screen = document.getElementById("LockScreen");
     Screen.style.setProperty("visibility", "visible");
+    if (LocationStatus == 1){
+      var LocationIcon = document.getElementById("Location");
+      LocationIcon.style.setProperty("visibility", "visible");
+    }
     locked = false;
   }
 }
