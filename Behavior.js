@@ -307,6 +307,9 @@ function Startup(){
 }
 
 function Switch(current, toSwitch){
+  if (current.id == 'DrinksMenu' && toSwitch.id == 'PaymentMenu' && totalDrinks == 0){
+    return;
+  }
   current.style.setProperty("visibility", "hidden");
   toSwitch.style.setProperty("visibility", "visible");
   if (current == 'MainScreen' || toSwitch == 'MainScreen'){
