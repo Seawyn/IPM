@@ -34,12 +34,12 @@
           <img src="ChangedMap-icon.png" style="height: 2.5em; width: 2.5em;">
           <b style="text-align: justify; font-size: 0.7em; position: relative; left: -5%;">Amigos</b>
         </div>
-        <div id="Bebidas" class="atIcon" onclick="Switch(MainScreen, DrinksMenu)" style="position: relative; top: 0.9%; left: 24%;">
+        <div id="Bebidas" class="atIcon" onclick="Switch(MainScreen, DrinksMenu)" style="position: relative; top: 0.4%; left: 24%;">
           <img src="ChangedCup-icon.png" style="height: 2.5em; width: 2.5em;">
           <b style="text-align: justify; font-size: 0.7em; position: relative; top: -10%; left: -5%;">Bebidas</b>
         </div>
         <br>
-        <div id="WC" class="atIcon" onclick="Switch(MainScreen, MenuWC)" style="position: relative; top: 35.9%; left: -45%;">
+        <div id="WC" class="atIcon" onclick="Switch(MainScreen, MenuWC)" style="position: relative; top: 35.9%; left: -45.8%;">
           <img src="WC-icon.png" style="height: 2.5em; width: 2.5em;">
           <b style="text-align: center; font-size: 0.7em; position: relative; left: 27%">WC</b>
         </div>
@@ -48,7 +48,7 @@
           <b style="text-align: center; font-size: 0.7em; position: relative; left: -35%">Notifica&ccedil;&otilde;es</b>
         </div>
         <br>
-        <div id="Definicoes" class="atIcon" onclick="Switch(MainScreen, Settings)" style="position: relative; top: 40%; left: -18.5%;">
+        <div id="Definicoes" class="atIcon" onclick="Switch(MainScreen, Settings)" style="position: relative; top: 40%; left: -19%;">
           <img src="ChangedSettings-icon.png" style="height: 2.5em; width: 2.5em;">
           <b style="text-align: center; font-size: 0.7em; position: relative; left: -24%">Defini&ccedil;&otilde;es</b>
         </div>
@@ -71,16 +71,24 @@
       <p style="text-align:center;font-size:0.8em;"> Encoste o seu iRave ao do seu amigo e aguarde... </p>
       </center>
     </div>
+    <div id="AddChoice" class="Altdiv" style="background-color: #ffb3b3;">
+      <img src="HighBattery.png" style="position: relative; left: 40.5%">
+      <p id="AddQuestion" style="text-align: center; font-size: 1em;"></p>
+      <button type="button" onclick="Switch(AddChoice, LocationMenu);" style="border-radius: 20%; padding: 0.3em 0.8em; border: none; background: #ff8080; position: relative; top: 20%; left: -10%;">N&atilde;o</button>
+      <button type="button" onclick="Switch(AddChoice, SuccessfulConnection)" style="border-radius: 20%; padding: 0.3em 0.8em; border: none; background: #ff8080; position: relative; top: 20%; left: 10%;">Sim</button>
+    </div>
     <div id="SuccessfulConnection" class="Altdiv" style="background-color: #ffb3b3;">
       <img src="HighBattery.png" style="position: relative; left: 40.5%">
       <center><img src="CheckMark.png" height=30% width=30% align="middle";>
-      <p id="Header" style="position: absolute; top: 49%; text-align:center; font-size:1em;"></p>
+      <p id="Header" style="position: absolute; top: 49%; text-align: center; font-size:1em;"></p>
       </center>
-      <button id="ConnectionButton" type="button" onclick="Switch(SuccessfulConnection, LocationMenu)" style="border-radius: 20%; padding: 0.3em 0.8em; border: none; background: #ff8080; position: absolute; top: 78%; left: 68%">OK</button>
+      <button id="ConnectionButton" type="button" onclick="Switch(SuccessfulConnection, LocationMenu)" style="border-radius: 20%; padding: 0.3em 0.8em; border: none; background: #ff8080; position: absolute; top: 78%; left: 65%">OK</button>
     </div>
     <div id="Friends" class="Altdiv" style="background-color: #ffb3b3;">
       <img src="HighBattery.png" style="position: relative; left: 40.5%">
-      <p id="Placer" style="position: relative; top: 20%;"></p>
+      <div id="FriendsScroll" style="position: relative; overflow-x: hidden; overflow-y: scroll; height: 7.5em; width: 10.5em;">
+        <p id="Placer" style="position: relative; top: 20%;"></p>
+      </div>
     </div>
     <div id="Locator" class="Altdiv" style="background-color: #ffb3b3;">
       <img src="HighBattery.png" style="position: relative; left: 40.5%">
@@ -115,7 +123,7 @@
       <img src="plus.png" style="position: relative; top: -23%; left: 30%; width:20px; height:20px;" onclick="AddAmount()">
       <img src="minus.png" style="position: relative; top: -23%; left: -30%; width:20px; height:20px;" onclick="DecAmount()">
       <br>
-      <button class="button" style="position: relative; top: -20%;" onclick="Switch(DrinksMenu, PaymentMenu)"><b>Carrinho</b></button>
+      <button class="button" style="padding: 0.5em 0.3em; position: relative; top: -17%; left: 27%;" onclick="Switch(DrinksMenu, PaymentMenu)"><b>Carrinho</b></button>
     </div>
     <div id="PaymentMenu" class="Altdiv" style="background-color: #70dbdb;">
       <br>
@@ -168,37 +176,171 @@
       <p style="font-size: 1.5em;" onclick="Switch(Notifications, News)">Not&iacute;cias</p>
       <hr />
       <p style="font-size: 1.5em;" onclick="Switch(Notifications, Playbill)">Cartaz</p>
+      <img id="NewNotifications" src="NewNotifications-icon.png" style="position: relative; top: -49%; left: 40%; height: 1.7em; width: 1.7em;">
     </div>
     <div id="News" class="Altdiv" style="background-color: #b9cf6e;">
-      <img src="HighBattery.png" style="position: relative; left: 50%">
-      <img src="Maps.png" style="position: relative; left: 18%;">
+      <img src="HighBattery.png" style="position: relative; left: 40.5%">
       <div id="NewsScroll" style="position: relative; top: -5%; overflow-x: hidden; overflow-y: scroll; height: 8em; width: 10.5em;">
-        <hr />
-        <b id="News1_1"><ins>King Krule atua hoje</ins></b>
-        <hr />
-        <b id="News2_1"><ins>Atua&ccedil;&atilde;o de The National adiada 1 hora</ins></b>
-        <hr />
+        <p id="NewsHeader" style="position: relative; top: 20%;">Siga alguns artistas para ver as suas not&iacute;cias!</p>
+        <div id="NewsDiv1">
+          <hr id="NewsBar1" style="display: none;"/>
+          <b id="News1" onclick="Switch(News, NewsArtist2);" style="display: none;"><ins>King Krule atua hoje</ins></b>
+        </div>
+        <div id="NewsDiv2">
+          <hr id="NewsBar2" style="display: none;"/>
+          <b id="News2" onclick="Switch(News, NewsArtist3);" style="display: none;"><ins>Atua&ccedil;&atilde;o de The National adiada</ins></b>
+        </div>
+        <div id="NewsDiv3">
+          <hr id="NewsBar3" style="display: none;"/>
+          <b id="News3" onclick="Switch(News, NewsArtist1);" style="display: none;"><ins>Voxtrot anunciam convidado especial</ins></b>
+        </div>
+        <div id="NewsDiv4">
+          <hr id="NewsBar4" style="display: none;"/>
+          <b id="News4" onclick="Switch(News, NewsArtist4);" style="display: none;"><ins>Banda Whitney promete tocar novas m&uacute;sicas</ins></b>
+        </div>
       </div>
     </div>
-    <div id="Playbill" class="Altdiv" style="background-color: black;">
+    <div id="NewsArtist1" class="Altdiv" style="background-color: #b9cf6e;">
       <img src="HighBattery.png" style="position: relative; left: 40.5%">
-      <div id="PlaybillScroll" style="position: relative; top: -5%; overflow-x: hidden; overflow-y: scroll; height: 8em; width: 10.5em;">
-        <div id="Artist1" class="atIcon" style="height: 5.5em; width: 4.5em;">
-          <img src="Voxtrot.JPG" style="height: 4.5em; width: 4.5em;">
-          <b style="font-size: 0.75em; color: #b9cf6e; position: relative; left: 22%;">Voxtrot</b>
-        </div>
-        <div id="Artist2" class="atIcon" style="position: relative; left: 4%; height: 5.5em; width: 4.5em;">
-          <img src="The National.JPG" style="height: 4.5em; width: 4.5em;">
-          <b style="font-size: 0.75em; color: #b9cf6e; position: relative; left: 2%;">The National</b>
-        </div>
-        <div id="Artist3" class="atIcon" style="position: relative; top: 5%; height: 5.5em; width: 4.5em;">
-          <img src="King Krule.JPG" style="height: 4.5em; width: 4.5em;">
-          <b style="font-size: 0.75em; color: #b9cf6e; position: relative; left: 10%;">King Krule</b>
-        </div>
-        <div id="Artist4" class="atIcon" style="position: relative; top: 4.5%; left: 4%; height: 5.5em; width: 4.5em;">
-          <img src="Whitney.JPG" style="height: 4.5em; width: 4.5em;">
-          <b style="font-size: 0.75em; color: #b9cf6e; position: relative; left: 18%;">Whitney</b>
-        </div>
+      <div id="NewsScroll1" style="position: relative; top: -5%; overflow-x: hidden; overflow-y: scroll; height: 8em; width: 10.5em;">
+        <b>Voxtrot anuncia que ter&aacute; um convidado especial</b>
+        <br>
+        <br>
+        <p style="text-align: left;">Espera-se que <b>um convidado especial atue com a banda Voxtrot</b>, contudo, n&atilde;o foram revelados mais detalhes.</p>
+        <br>
+        <p style="opacity: 0.7;">H&aacute; 25 minutos</p>
+      </div>
+    </div>
+    <div id="NewsArtist2" class="Altdiv" style="background-color: #b9cf6e;">
+      <img src="HighBattery.png" style="position: relative; left: 40.5%">
+      <div id="NewsScroll2" style="position: relative; top: -5%; overflow-x: hidden; overflow-y: scroll; height: 8em; width: 10.5em;">
+        <b>King Krule atua hoje</b>
+        <br>
+        <br>
+        <p style="text-align: left;">Relembramos que hoje &agrave;s 21 horas haver&aacute; uma atua&ccedil;&atilde;o do King Krule no palco Alpha.</p>
+        <br>
+        <p style="opacity: 0.7;">H&aacute; 3 horas</p>
+      </div>
+    </div>
+    <div id="NewsArtist3" class="Altdiv" style="background-color: #b9cf6e;">
+      <img src="HighBattery.png" style="position: relative; left: 40.5%">
+      <div id="NewsScroll3" style="position: relative; top: -5%; overflow-x: hidden; overflow-y: scroll; height: 8em; width: 10.5em;">
+        <b>Atua&ccedil;&atilde;o de The National adiada</b>
+        <br>
+        <br>
+        <p style="text-align: left; position: relative; left: 2%;">Devido a problemas t&eacute;cnicos, a atua&ccedil;&atilde;o dos The National foi adiada 1 hora.</p>
+        <br>
+        <p style="opacity: 0.7;">H&aacute; 1 dia</p>
+      </div>
+    </div>
+    <div id="NewsArtist4" class="Altdiv" style="background-color: #b9cf6e;">
+      <img src="HighBattery.png" style="position: relative; left: 40.5%">
+      <div id="NewsScroll4" style="position: relative; top: -5%; overflow-x: hidden; overflow-y: scroll; height: 8em; width: 10.5em;">
+        <b>Banda Whitney promete tocar novas m&uacute;sicas</b>
+        <br>
+        <br>
+        <p style="text-align: left;">Banda Whitney promete tocar m&uacute;sicas do seu novo &aacute;lbum, que ainda n&atilde;o foi lan&ccedil;ado.</p>
+        <br>
+        <p style="opacity: 0.7;">H&aacute; 3 dias</p>
+      </div>
+    </div>
+    <div id="Playbill" class="Altdiv" style="background-color: #b9cf6e;">
+      <img src="HighBattery.png" style="position: relative; left: 40.5%">
+      <div id="PlaybillScroll" style="text-align: left; position: relative; top: -5%; overflow-x: hidden; overflow-y: scroll; height: 8em; width: 10.5em;">
+        <p style="font-size: 0.9em; text-align: right; position: relative; top: 5%; left: -3%;">Seguir</p>
+        <hr />
+        <p onclick="Switch(Playbill, Artist1);" style="font-size: 1.1em; position: relative; left: 5%;"><ins>Voxtrot</ins></p>
+        <hr />
+        <p onclick="Switch(Playbill, Artist2);" style="font-size: 1.1em; position: relative; left: 5%;"><ins>The National</ins></p>
+        <hr />
+        <p onclick="Switch(Playbill, Artist3);" style="font-size: 1.1em; position: relative; left: 5%;"><ins>King Krule</ins></p>
+        <hr />
+        <p onclick="Switch(Playbill, Artist4);" style="font-size: 1.1em; position: relative; left: 5%;"><ins>Whitney</ins></p>
+        <img id="ArtistBox1" src="Box.png" onclick="followArtist(1);" style="height: 1.5em; width: 1.5em; position: relative; top: -109%; left: 78.5%;">
+        <img id="ArtistBox2" src="Box.png" onclick="followArtist(2);" style="height: 1.5em; width: 1.5em; position: relative; top: -78%; left: 60%;">
+        <img id="ArtistBox3" src="Box.png" onclick="followArtist(3);" style="height: 1.5em; width: 1.5em; position: relative; top: -47.5%; left: 41.5%;">
+        <img id="ArtistBox4" src="Box.png" onclick="followArtist(4);" style="height: 1.5em; width: 1.5em; position: relative; top: -17%; left: 23%;">
+      </div>
+    </div>
+    <div id="Artist1" class="Altdiv" style="background-color: black;">
+      <img src="HighBattery.png" style="position: relative; left: 40.5%">
+      <div id="ArtistScroll1" style="overflow-x: hidden; overflow-y: scroll; height: 8em; width: 10.5em; position: relative; top: -5%;">
+        <img src="Voxtrot.JPG" style="height: 7em; width:7em;">
+        <b style="font-size: 1em; color: #b9cf6e; position: relative; ">Voxtrot</b>
+        <br>
+        <br>
+        <b style="font-size: 0.8em; color: #b9cf6e; position: relative; left: -30%;">Origem:</b>
+        <p style="font-size: 0.8em; color: #b9cf6e; position: relative; left: -10%;">Texas, EUA (2003)</p>
+        <br>
+        <b style="font-size: 0.8em; color: #b9cf6e; position: relative; left: -30%;">G&eacute;nero:</b>
+        <p style="font-size: 0.8em; color: #b9cf6e; position: relative; left: -5%;">Indie Pop, Indie Rock</p>
+        <br>
+        <b style="font-size: 0.8em; color: #b9cf6e; position: relative; left: -30%;">Hor&aacute;rio:</b>
+        <p style="font-size: 0.8em; color: #b9cf6e; position: relative; left: -11%;">3 de Agosto, 2018</p>
+        <br>
+        <b style="font-size: 0.8em; color: #b9cf6e; position: relative; left: -34%;">Palco:</b>
+        <p style="font-size: 0.8em; color: #b9cf6e; position: relative; left: -37%;">Alpha</p>
+      </div>
+    </div>
+    <div id="Artist2" class="Altdiv" style="background-color: black;">
+      <img src="HighBattery.png" style="position: relative; left: 40.5%">
+      <div id="ArtistScroll2" style="overflow-x: hidden; overflow-y: scroll; height: 8em; width: 10.5em; position: relative; top: -5%;">
+        <img src="The National.JPG" style="height: 7em; width:7em;">
+        <br>
+        <b style="font-size: 1em; color: #b9cf6e; position: relative; ">The National</b>
+        <br>
+        <br>
+        <b style="font-size: 0.8em; color: #b9cf6e; position: relative; left: -30%;">Origem:</b>
+        <p style="font-size: 0.8em; color: #b9cf6e; position: relative; left: -13%;">Ohio, EUA (1999)</p>
+        <br>
+        <b style="font-size: 0.8em; color: #b9cf6e; position: relative; left: -30%;">G&eacute;nero:</b>
+        <p style="font-size: 0.8em; color: #b9cf6e; position: relative; left: -26%;">Indie Rock</p>
+        <br>
+        <b style="font-size: 0.8em; color: #b9cf6e; position: relative; left: -30%;">Hor&aacute;rio:</b>
+        <p style="font-size: 0.8em; color: #b9cf6e; position: relative; left: -11%;">4 de Agosto, 2018</p>
+        <br>
+        <b style="font-size: 0.8em; color: #b9cf6e; position: relative; left: -34%;">Palco:</b>
+        <p style="font-size: 0.8em; color: #b9cf6e; position: relative; left: -39%;">Beta</p>
+      </div>
+    </div>
+    <div id="Artist3" class="Altdiv" style="background-color: black;">
+      <img src="HighBattery.png" style="position: relative; left: 40.5%">
+      <div id="ArtistScroll3" style="overflow-x: hidden; overflow-y: scroll; height: 8em; width: 10.5em; position: relative; top: -5%;">
+        <img src="King Krule.JPG" style="height: 7em; width:7em;">
+        <b style="font-size: 1em; color: #b9cf6e; position: relative; ">King Krule</b>
+        <br>
+        <br>
+        <b style="font-size: 0.8em; color: #b9cf6e; position: relative; left: -30%;">Origem:</b>
+        <p style="text-align: left; font-size: 0.8em; color: #b9cf6e; position: relative; left: 4%;">Londres, Inglaterra<br>(2010)</p>
+        <br>
+        <b style="font-size: 0.8em; color: #b9cf6e; position: relative; left: -30%;">G&eacute;nero:</b>
+        <p style="text-align: left; font-size: 0.8em; color: #b9cf6e; position: relative; left: 4%;">Indie Rock,<br> Punk Jazz, ...</p>
+        <br>
+        <b style="font-size: 0.8em; color: #b9cf6e; position: relative; left: -30%;">Hor&aacute;rio:</b>
+        <p style="font-size: 0.8em; color: #b9cf6e; position: relative; left: -11%;">5 de Agosto, 2018</p>
+        <br>
+        <b style="font-size: 0.8em; color: #b9cf6e; position: relative; left: -34%;">Palco:</b>
+        <p style="font-size: 0.8em; color: #b9cf6e; position: relative; left: -36%;">Alpha</p>
+      </div>
+    </div>
+    <div id="Artist4" class="Altdiv" style="background-color: black;">
+      <img src="HighBattery.png" style="position: relative; left: 40.5%">
+      <div id="ArtistScroll4" style="overflow-x: hidden; overflow-y: scroll; height: 8em; width: 10.5em; position: relative; top: -5%;">
+        <img src="Whitney.JPG" style="height: 7em; width:7em;">
+        <b style="font-size: 1em; color: #b9cf6e; position: relative; ">Whitney</b>
+        <br>
+        <br>
+        <b style="font-size: 0.8em; color: #b9cf6e; position: relative; left: -30%;">Origem:</b>
+        <p style="font-size: 0.8em; color: #b9cf6e; position: relative; left: -10%;">Illinois, EUA (2015)</p>
+        <br>
+        <b style="font-size: 0.8em; color: #b9cf6e; position: relative; left: -30%;">G&eacute;nero:</b>
+        <p style="font-size: 0.8em; color: #b9cf6e; position: relative; left: -5%;">Indie Folk, Indie Rock</p>
+        <br>
+        <b style="font-size: 0.8em; color: #b9cf6e; position: relative; left: -30%;">Hor&aacute;rio:</b>
+        <p style="font-size: 0.8em; color: #b9cf6e; position: relative; left: -11%;">4 de Agosto, 2018</p>
+        <br>
+        <b style="font-size: 0.8em; color: #b9cf6e; position: relative; left: -34%;">Palco:</b>
+        <p style="font-size: 0.8em; color: #b9cf6e; position: relative; left: -36%;">Alpha</p>
       </div>
     </div>
 
@@ -208,7 +350,7 @@
       <hr />
       <b style="text-align: left; font-size: 1em; position: relative; left: -15%;">Localiza&ccedil;&atilde;o</b>
       <hr />
-      <img id="LocationSlider" src="SliderRight-icon.png" onclick="changeLocationStatus();" style="height: 2em; width: 2em; position: relative; top: -29%; left: 34%;">
+      <img id="LocationSlider" src="SliderLeft-icon.png" onclick="changeLocationStatus();" style="height: 2em; width: 2em; position: relative; top: -29%; left: 34%;">
     </div>
   </div>
   <img src="Strap texture.JPG" style="position: absolute; top: 59%; left: 46.9%; height: 25em; width: 7.5em;z-index: -5;">
