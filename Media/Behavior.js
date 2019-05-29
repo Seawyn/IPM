@@ -66,12 +66,12 @@ function resetAmount(){
 function ChangeDrinkRight(){
   if(drink + 1 > 1){
     drink = 0;
-    document.getElementById("Drink").src = "pint.png";
+    document.getElementById("Drink").src = "Media/pint.png";
     document.getElementById("DrinkAmount").innerHTML = totalPint;
   }
   else{
     drink++;
-    document.getElementById("Drink").src = "sangria.png";
+    document.getElementById("Drink").src = "Media/sangria.png";
     document.getElementById("DrinkAmount").innerHTML = totalSangria;
   }
 }
@@ -79,12 +79,12 @@ function ChangeDrinkRight(){
 function ChangeDrinkLeft(){
   if(drink - 1 < 0){
     drink = 1;
-    document.getElementById("Drink").src = "sangria.png";
+    document.getElementById("Drink").src = "Media/sangria.png";
     document.getElementById("DrinkAmount").innerHTML = totalSangria;
   }
   else{
     drink--;
-    document.getElementById("Drink").src = "pint.png";
+    document.getElementById("Drink").src = "Media/pint.png";
     document.getElementById("DrinkAmount").innerHTML = totalPint;
   }
 }
@@ -226,12 +226,12 @@ function ScrollDetect(){
   var TopPart = document.getElementById("TopPart");
   var BottomPart = document.getElementById("BottomPart");
   if (ScrollArea.scrollTop > 50){
-    TopPart.src = "Unoccupied.png";
-    BottomPart.src = "Current.png";
+    TopPart.src = "Media/Unoccupied.png";
+    BottomPart.src = "Media/Current.png";
   }
   else {
-    TopPart.src = "Current.png";
-    BottomPart.src = "Unoccupied.png";
+    TopPart.src = "Media/Current.png";
+    BottomPart.src = "Media/Unoccupied.png";
   }
 }
 
@@ -391,28 +391,28 @@ function Switch(current, toSwitch){
       var NewsDiv = document.getElementById("NewsDiv1");
       NewsDiv.style.setProperty("visibility", "visible");
       if (read1 == 0){
-        NewsDiv.style.setProperty("background-color", "#abc653");
+        NewsDiv.style.setProperty("background-color", "#91ac39");
       }
     }
     if (following2 == 1){
       var NewsDiv = document.getElementById("NewsDiv2");
       NewsDiv.style.setProperty("visibility", "visible");
       if (read2 == 0){
-        NewsDiv.style.setProperty("background-color", "#abc653");
+        NewsDiv.style.setProperty("background-color", "#91ac39");
       }
     }
     if (following1 == 1){
       var NewsDiv = document.getElementById("NewsDiv3");
       NewsDiv.style.setProperty("visibility", "visible");
       if (read3 == 0){
-        NewsDiv.style.setProperty("background-color", "#abc653");
+        NewsDiv.style.setProperty("background-color", "#91ac39");
       }
     }
     if (following4 == 1){
       var NewsDiv = document.getElementById("NewsDiv4");
       NewsDiv.style.setProperty("visibility", "visible");
       if (read4 == 0){
-        NewsDiv.style.setProperty("background-color", "#abc653");
+        NewsDiv.style.setProperty("background-color", "#91ac39");
       }
     }
   }
@@ -423,6 +423,8 @@ function Switch(current, toSwitch){
     verifyNotifications();
     var NewsDiv = document.getElementById("NewsDiv3");
     NewsDiv.style.setProperty("background-color", "#b9cf6e");
+    var text = document.getElementById("News3");
+    text.style.setProperty("font-weight", "normal");
   }
   if (toSwitch.id == 'NewsArtist2'){
     var ScrollArea = document.getElementById("NewsScroll2");
@@ -431,6 +433,8 @@ function Switch(current, toSwitch){
     verifyNotifications();
     var NewsDiv = document.getElementById("NewsDiv1");
     NewsDiv.style.setProperty("background-color", "#b9cf6e");
+    var text = document.getElementById("News1");
+    text.style.setProperty("font-weight", "normal");
   }
   if (toSwitch.id == 'NewsArtist3'){
     var ScrollArea = document.getElementById("NewsScroll3");
@@ -439,6 +443,8 @@ function Switch(current, toSwitch){
     verifyNotifications();
     var NewsDiv = document.getElementById("NewsDiv2");
     NewsDiv.style.setProperty("background-color", "#b9cf6e");
+    var text = document.getElementById("News2");
+    text.style.setProperty("font-weight", "normal");
   }
   if (toSwitch.id == 'NewsArtist4'){
     var ScrollArea = document.getElementById("NewsScroll4");
@@ -447,6 +453,8 @@ function Switch(current, toSwitch){
     verifyNotifications();
     var NewsDiv = document.getElementById("NewsDiv4");
     NewsDiv.style.setProperty("background-color", "#b9cf6e");
+    var text = document.getElementById("News4");
+    text.style.setProperty("font-weight", "normal");
   }
   if (toSwitch.id == 'Playbill'){
     var ScrollArea = document.getElementById("PlaybillScroll");
@@ -606,13 +614,13 @@ function displayFriend(){
 function changeImage(number){
   var image = document.getElementById("Main");
   if (number == 0)
-    image.src = "Map.png";
+    image.src = "Media/Map.png";
   else if (number == 1)
-    image.src = "MapToFriend1.png";
+    image.src = "Media/MapToFriend1.png";
   else if (number == 2)
-    image.src = "MapToFriend2.png";
+    image.src = "Media/MapToFriend2.png";
   else
-    image.src = "MapToFriend3.png";
+    image.src = "Media/MapToFriend3.png";
 }
 
 function verifyLocation(){
@@ -629,13 +637,13 @@ function followArtist(number){
     var news = document.getElementById("News3");
     var bar = document.getElementById("NewsBar3");
     if (!following1){
-      image.src = "CheckmarkInBox.png";
+      image.src = "Media/CheckmarkInBox.png";
       following1 = 1;
       news.style.setProperty("display", "inline");
       bar.style.setProperty("display", "block");
     }
     else {
-      image.src = "Box.png";
+      image.src = "Media/Box.png";
       following1 = 0;
       news.style.setProperty("display", "none");
       bar.style.setProperty("display", "none");
@@ -652,7 +660,7 @@ function followArtist(number){
       bar.style.setProperty("display", "block");
     }
     else {
-      image.src = "Box.png";
+      image.src = "Media/Box.png";
       following2 = 0;
       news.style.setProperty("display", "none");
       bar.style.setProperty("display", "none");
@@ -663,13 +671,13 @@ function followArtist(number){
     var news = document.getElementById("News1");
     var bar = document.getElementById("NewsBar1");
     if (!following3){
-      image.src = "CheckmarkInBox.png";
+      image.src = "Media/CheckmarkInBox.png";
       following3 = 1;
       news.style.setProperty("display", "inline");
       bar.style.setProperty("display", "block");
     }
     else {
-      image.src = "Box.png";
+      image.src = "Media/Box.png";
       following3 = 0;
       news.style.setProperty("display", "none");
       bar.style.setProperty("display", "none");
@@ -680,13 +688,13 @@ function followArtist(number){
     var news = document.getElementById("News4");
     var bar = document.getElementById("NewsBar4");
     if (!following4){
-      image.src = "CheckmarkInBox.png";
+      image.src = "Media/CheckmarkInBox.png";
       following4 = 1;
       news.style.setProperty("display", "inline");
       bar.style.setProperty("display", "block");
     }
     else {
-      image.src = "Box.png";
+      image.src = "Media/Box.png";
       following4 = 0;
       news.style.setProperty("display", "none");
       bar.style.setProperty("display", "none");
@@ -729,12 +737,12 @@ function changeLocationStatus(){
   var Slider = document.getElementById("LocationSlider");
   var LocationIcon = document.getElementById("Location");
   if (LocationStatus == 0){
-    Slider.src = "SliderRight-icon.png";
+    Slider.src = "Media/SliderRight-icon.png";
     LocationIcon.style.setProperty("visibility", "visible");
     LocationStatus = 1;
   }
   else {
-    Slider.src = "SliderLeft-icon.png";
+    Slider.src = "Media/SliderLeft-icon.png";
     LocationIcon.style.setProperty("visibility", "hidden");
     LocationStatus = 0;
   }

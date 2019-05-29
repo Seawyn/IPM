@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="Media/Form.css">
-  <script src="Media/Behavior.js"></script>
+  <link rel="stylesheet" href="Form.css">
+  <script src="Behavior.js"></script>
 </head>
 <body onload="getTime(); getDate(); Startup();" style="background: #b3efe6;">
-  <img src="Media/Strap texture.JPG" style="position: absolute; top: 5.7%; left: 46.9%; height: 25em; width: 7.5em;z-index: -5;">
+  <img src="Strap texture.JPG" style="position: absolute; top: 5.7%; left: 46.9%; height: 25em; width: 7.5em;z-index: -5;">
   <div id="Border" class="Borderdiv" style="position: absolute; top: 42.7%; left: 45.4%;">
-    <img id="Location" src="Media/Maps.png" style="float:right; position: relative; top: 7%; left: -18.5%; z-index: 5; visibility: hidden;">
+    <img id="Location" src="Maps.png" style="float:right; position: relative; top: 8%; left: -18.5%; z-index: 5; visibility: hidden;">
     <button class="hardButton" style="position: absolute; top: 20%; left: 99.93%" onclick="Lock()"></button>
     <button class="hardButton" style="position: absolute; top: 20%; left: -6.65%" onclick="Goback()"></button>
     <b id="Present" style="text-align:left; position: absolute; top: 8%; left: 10%; z-index: 1; visibility: hidden;"></b>
@@ -17,117 +17,117 @@
 
     <!-- Ecrã de bloqueio -->
     <div id="LockScreen" class="Altdiv">
-      <img src="Media/HighBattery.png" style="float:right; position: relative; top: -1.5%; left: -1.5%">
+      <img src="HighBattery.png" style="float:right; position: relative; left: -1.5%">
       <br>
       <br>
       <p id="Time" style="text-align:center; font-size:2em;"></p>
       <p id="Date" style="text-align:center;"></p>
-      <img src="Media/Fingerprint-icon.png" style="height: 2.8em; width: 2.8em;" onclick="Unlock()">
+      <img src="Fingerprint-icon.png" style="height: 2.8em; width: 2.8em;" onclick="Unlock()">
     </div>
 
     <!-- Ecrã principal -->
     <div id="MainScreen" class="Altdiv" style="overflow: hidden;">
       <br>
-      <img src="Media/HighBattery.png" style="position: relative; top: -13%; left: 40.5%;">
+      <img src="HighBattery.png" style="position: relative; top: -13%; left: 40.5%;">
       <div id="MenuScroll" onscroll="ScrollDetect();" style="position: relative; top: -15%; overflow-x: hidden; overflow-y: scroll; height: 7.5em; width: 10.5em;">
         <div id="Amigos" class="atIcon" onclick="Switch(MainScreen, LocationMenu)" style="position: relative; left: 7%;">
-          <img src="Media/ChangedMap-icon.png" style="height: 2.5em; width: 2.5em;">
+          <img src="ChangedMap-icon.png" style="height: 2.5em; width: 2.5em;">
           <b style="text-align: justify; font-size: 0.7em; position: relative; left: -5%;">Amigos</b>
         </div>
         <div id="Bebidas" class="atIcon" onclick="Switch(MainScreen, DrinksMenu)" style="position: relative; top: 0.4%; left: 24%;">
-          <img src="Media/ChangedCup-icon.png" style="height: 2.5em; width: 2.5em;">
+          <img src="ChangedCup-icon.png" style="height: 2.5em; width: 2.5em;">
           <b style="text-align: justify; font-size: 0.7em; position: relative; top: -10%; left: -5%;">Bebidas</b>
         </div>
         <br>
         <div id="WC" class="atIcon" onclick="Switch(MainScreen, MenuWC)" style="position: relative; top: 35.9%; left: -45.8%;">
-          <img src="Media/WC-icon.png" style="height: 2.5em; width: 2.5em;">
+          <img src="WC-icon.png" style="height: 2.5em; width: 2.5em;">
           <b style="text-align: center; font-size: 0.7em; position: relative; left: 27%">WC</b>
         </div>
         <div id="Notificacoes" class="atIcon" onclick="Switch(MainScreen, Notifications)" style="position: relative; top: -14.4%; left: 50%;">
-          <img src="Media/Bell-icon.png" style="height: 2.5em; width: 2.5em; position: relative; top: -5%">
+          <img src="Bell-icon.png" style="height: 2.5em; width: 2.5em; position: relative; top: -5%">
           <b style="text-align: center; font-size: 0.7em; position: relative; left: -35%">Notifica&ccedil;&otilde;es</b>
         </div>
         <br>
         <div id="Definicoes" class="atIcon" onclick="Switch(MainScreen, Settings)" style="position: relative; top: 40%; left: -19%;">
-          <img src="Media/ChangedSettings-icon.png" style="height: 2.5em; width: 2.5em;">
+          <img src="ChangedSettings-icon.png" style="height: 2.5em; width: 2.5em;">
           <b style="text-align: center; font-size: 0.7em; position: relative; left: -24%">Defini&ccedil;&otilde;es</b>
         </div>
       </div>
-      <img id="TopPart" src="Media/Current.png" style="height: 0.8em; width: 0.8em; position: relative; top: -70%; left: 46.5%;">
-      <img id="BottomPart" src="Media/Unoccupied.png" style="height: 0.8em; width: 0.8em; position: relative; top: -60%; left: 35.4%;">
+      <img id="TopPart" src="Current.png" style="height: 0.8em; width: 0.8em; position: relative; top: -70%; left: 46.5%;">
+      <img id="BottomPart" src="Unoccupied.png" style="height: 0.8em; width: 0.8em; position: relative; top: -60%; left: 35.4%;">
     </div>
 
     <!-- Ecrã de Amigos -->
     <div id="LocationMenu" class="Altdiv" style="background-color: #ffb3b3;">
-      <img src="Media/HighBattery.png" style="position: relative; top: -1.5%; left: 40.5%">
+      <img src="HighBattery.png" style="position: relative; left: 40.5%">
       <hr />
       <p style="position: relative; top: -5%; text-align:left;font-size:1.15em;margin:1%" onclick="Switch(LocationMenu, Locator)"> Encontrar Amigos </p><hr/>
       <p style="position: relative; top: -5%; text-align:left;font-size:1.15em;margin:1%" onclick="Switch(LocationMenu, Friends)"> Lista de Amigos </p><hr/>
       <p style="position: relative; top: -5%; text-align:left;font-size:1.15em;margin:1%" onclick="Switch(LocationMenu, WifiAwait);"> Adicionar Amigos </p>
     </div>
     <div id="WifiAwait" class="Altdiv" style="background-color: #ffb3b3;">
-      <img src="Media/HighBattery.png" style="position: relative; left: 40.5%">
-      <center><img src="Media/Wifi.png" height=45% width=55% align="middle";>
+      <img src="HighBattery.png" style="position: relative; left: 40.5%">
+      <center><img src="Wifi.png" height=45% width=55% align="middle";>
       <p style="text-align:center;font-size:0.8em;"> Encoste o seu iRave ao do seu amigo e aguarde... </p>
       </center>
     </div>
     <div id="AddChoice" class="Altdiv" style="background-color: #ffb3b3;">
-      <img src="Media/HighBattery.png" style="position: relative; left: 40.5%">
+      <img src="HighBattery.png" style="position: relative; left: 40.5%">
       <p id="AddQuestion" style="text-align: center; font-size: 1em;"></p>
       <button type="button" onclick="Switch(AddChoice, LocationMenu);" style="border-radius: 20%; padding: 0.3em 0.8em; border: none; background: #ff8080; position: relative; top: 20%; left: -10%;">N&atilde;o</button>
       <button type="button" onclick="Switch(AddChoice, SuccessfulConnection)" style="border-radius: 20%; padding: 0.3em 0.8em; border: none; background: #66ff99; position: relative; top: 20%; left: 10%;">Sim</button>
     </div>
     <div id="SuccessfulConnection" class="Altdiv" style="background-color: #ffb3b3;">
-      <img src="Media/HighBattery.png" style="position: relative; left: 40.5%">
-      <center><img src="Media/CheckMark.png" height=30% width=30% align="middle";>
+      <img src="HighBattery.png" style="position: relative; left: 40.5%">
+      <center><img src="CheckMark.png" height=30% width=30% align="middle";>
       <p id="Header" style="position: absolute; top: 49%; text-align: center; font-size:1em;"></p>
       </center>
       <button id="ConnectionButton" type="button" onclick="Switch(SuccessfulConnection, LocationMenu)" style="border-radius: 20%; padding: 0.3em 0.8em; border: none; background: #ff8080; position: absolute; top: 78%; left: 65%">OK</button>
     </div>
     <div id="Friends" class="Altdiv" style="background-color: #ffb3b3;">
-      <img src="Media/HighBattery.png" style="position: relative; left: 40.5%">
+      <img src="HighBattery.png" style="position: relative; left: 40.5%">
       <div id="FriendsScroll" style="position: relative; overflow-x: hidden; overflow-y: scroll; height: 7.5em; width: 10.5em;">
         <p id="Placer" style="position: relative; top: 20%;"></p>
       </div>
     </div>
     <div id="Locator" class="Altdiv" style="background-color: #ffb3b3;">
-      <img src="Media/HighBattery.png" style="position: relative; left: 40.5%">
-      <img id="Main" src="Media/Map.png" style="position: relative; top: -3%; height: 80%; width: 95%;" onclick="changeImage(0)">
+      <img src="HighBattery.png" style="position: relative; left: 40.5%">
+      <img id="Main" src="Map.png" style="position: relative; top: -3%; height: 80%; width: 95%;" onclick="changeImage(0)">
       <div id="Locator1" class="atIcon" style="position: relative; top: -30%; left: 35%" onclick="changeImage(1)">
-        <img src="Media/Friend1.png" style="height: 25%; width: 25%; position: relative; top: -50%;">
+        <img src="Friend1.png" style="height: 25%; width: 25%; position: relative; top: -50%;">
         <h id="Name1" style="text-align: center; font-size: 0.8em;"></h>
       </div>
       <div id="Locator2" class="atIcon" style="position: relative; top: -30%; left: 45%" onclick="changeImage(2)">
-        <img src="Media/Friend2.png" style="height: 25%; width: 25%; position: relative; top: -50%;">
+        <img src="Friend2.png" style="height: 25%; width: 25%; position: relative; top: -50%;">
         <h id="Name2" style="text-align: justify; font-size: 0.8em;"></h>
       </div>
       <div id="Locator3" class="atIcon" style="position: relative; top: -73%; left: -35%" onclick="changeImage(3)">
-        <img src="Media/Friend3.png" style="height: 25%; width: 25%; position: relative; top: -50%;">
+        <img src="Friend3.png" style="height: 25%; width: 25%; position: relative; top: -50%;">
         <h id="Name3" style="text-align: justify; font-size: 0.8em;"></h>
       </div>
     </div>
     <div id="NoLocation" class="Altdiv" style="background-color: #ffb3b3;">
-      <img src="Media/HighBattery.png" style="position: relative; left: 40.5%">
+      <img src="HighBattery.png" style="position: relative; left: 40.5%">
       <p style="position: relative; top: 20%;">Tem a localiza&ccedil;&atilde;o desativada!</p>
     </div>
 
     <!-- Ecrã de Bebidas -->
     <div id="DrinksMenu" class="Altdiv" style="background-color: #70dbdb;">
       <br>
-      <img src="Media/HighBattery.png" style="position: relative; top: -13%; left: 40.5%">
+      <img src="HighBattery.png" style="position: relative; top: -13%; left: 40.5%">
       <br>
-      <img src="Media/left-arrow.png" style="position: relative; top: -20%; left: -5%; width:1.25em; height:1.25em;"onclick="ChangeDrinkLeft()">
-      <img id ="Drink" src="Media/pint.png" style="position: relative; top: -15%; left: 0%; width:2.5em; height:2.5em;">
-      <img src="Media/right-arrow.png" style="position: relative; top: -20%; left: 5%; width:1.25em; height:1.25;" onclick="ChangeDrinkRight()">
+      <img src="left-arrow.png" style="position: relative; top: -20%; left: -5%; width:1.25em; height:1.25em;"onclick="ChangeDrinkLeft()">
+      <img id ="Drink" src="pint.png" style="position: relative; top: -15%; left: 0%; width:2.5em; height:2.5em;">
+      <img src="right-arrow.png" style="position: relative; top: -20%; left: 5%; width:1.25em; height:1.25;" onclick="ChangeDrinkRight()">
       <p id="DrinkAmount" style="text-align:center; position: relative; top: -10%; left: 0%;">0</p>
-      <img src="Media/plus.png" style="position: relative; top: -23%; left: 30%; width:20px; height:20px;" onclick="AddAmount()">
-      <img src="Media/minus.png" style="position: relative; top: -23%; left: -30%; width:20px; height:20px;" onclick="DecAmount()">
+      <img src="plus.png" style="position: relative; top: -23%; left: 30%; width:20px; height:20px;" onclick="AddAmount()">
+      <img src="minus.png" style="position: relative; top: -23%; left: -30%; width:20px; height:20px;" onclick="DecAmount()">
       <br>
       <button class="button" style="padding: 0.5em 0.3em; position: relative; top: -17%; left: 27%;" onclick="Switch(DrinksMenu, PaymentMenu)"><b>Carrinho</b></button>
     </div>
     <div id="PaymentMenu" class="Altdiv" style="background-color: #70dbdb;">
       <br>
-      <img src="Media/HighBattery.png" style="position: relative; top: -13%; left: 40.5%">
+      <img src="HighBattery.png" style="position: relative; top: -13%; left: 40.5%">
       <br>
       <p style="text-align:center; position: relative; top: -17%; left: 0%; font-size: 1.3em;">Conta</p>
       <p id="BeerAmount" style="text-align:left; position: relative; top: -14%; left: 8%; font-size: 1em;"> 0 </p>
@@ -142,7 +142,7 @@
     </div>
     <div id="PaymentSuccessful" class="Altdiv" style="background-color: #70dbdb;">
       <br>
-      <img src="Media/HighBattery.png" style="position: relative; top: -13%; left: 40.5%">
+      <img src="HighBattery.png" style="position: relative; top: -13%; left: 40.5%">
       <br>
       <p style="position: relative; top: -10%; font-size:1em;"> Pagamento efetuado </p>
       <p style="position: relative; top: -4%;"> Balc&atilde;o: <b>11</b></p>
@@ -153,7 +153,7 @@
     <!-- Ecrã da WC -->
       <div id="MenuWC" class="Altdiv" style="background-color: #a3a3c2">
         <br>
-        <img src="Media/HighBattery.png" style="position: relative; top: -13%; left: 40.5%">
+        <img src="HighBattery.png" style="position: relative; top: -13%; left: 40.5%">
         <br>
         <p style="text-align:center; font-size:2em;"> WC</p>
         <br>
@@ -161,7 +161,7 @@
       </div>
       <div id="WCSuccessful" class="Altdiv" style="background-color: #a3a3c2">
         <br>
-        <img src="Media/HighBattery.png" style="position: relative; top: -13%; left: 40.5%">
+        <img src="HighBattery.png" style="position: relative; top: -13%; left: 40.5%">
         <br>
         <p id="TextStatus" style="position: relative; top: -10%; font-size:1.2em;"> WC reservado </p>
         <p id="Place" style="position: relative; top: -4%;"> WC a usar: <b>47</b></p>
@@ -171,7 +171,7 @@
 
     <!-- Ecrã de Notificações -->
     <div id="Notifications" class="Altdiv" style="background-color: #b9cf6e;">
-      <img src="Media/HighBattery.png" style="position: relative; top: -1.5%; left: 40.5%">
+      <img src="HighBattery.png" style="position: relative; left: 40.5%">
       <hr />
       <p style="font-size: 1.5em;" onclick="Switch(Notifications, News)">Not&iacute;cias</p>
       <hr />
@@ -179,7 +179,7 @@
       <img id="NewNotifications" src="NewNotifications-icon.png" style="position: relative; top: -49%; left: 40%; height: 1.7em; width: 1.7em;">
     </div>
     <div id="News" class="Altdiv" style="background-color: #b9cf6e;">
-      <img src="Media/HighBattery.png" style="position: relative; left: 40.5%">
+      <img src="HighBattery.png" style="position: relative; left: 40.5%">
       <div id="NewsScroll" style="position: relative; top: -5%; overflow-x: hidden; overflow-y: scroll; height: 8em; width: 10.5em;">
         <p id="NewsHeader" style="position: relative; top: 20%;">Siga alguns artistas para ver as suas not&iacute;cias!</p>
         <div id="NewsDiv1">
@@ -201,7 +201,7 @@
       </div>
     </div>
     <div id="NewsArtist1" class="Altdiv" style="background-color: #b9cf6e;">
-      <img src="Media/HighBattery.png" style="position: relative; left: 40.5%">
+      <img src="HighBattery.png" style="position: relative; left: 40.5%">
       <div id="NewsScroll1" style="position: relative; top: -5%; overflow-x: hidden; overflow-y: scroll; height: 8em; width: 10.5em;">
         <b>Voxtrot anuncia que ter&aacute; um convidado especial</b>
         <br>
@@ -212,7 +212,7 @@
       </div>
     </div>
     <div id="NewsArtist2" class="Altdiv" style="background-color: #b9cf6e;">
-      <img src="Media/HighBattery.png" style="position: relative; left: 40.5%">
+      <img src="HighBattery.png" style="position: relative; left: 40.5%">
       <div id="NewsScroll2" style="position: relative; top: -5%; overflow-x: hidden; overflow-y: scroll; height: 8em; width: 10.5em;">
         <b>King Krule atua hoje</b>
         <br>
@@ -223,7 +223,7 @@
       </div>
     </div>
     <div id="NewsArtist3" class="Altdiv" style="background-color: #b9cf6e;">
-      <img src="Media/HighBattery.png" style="position: relative; left: 40.5%">
+      <img src="HighBattery.png" style="position: relative; left: 40.5%">
       <div id="NewsScroll3" style="position: relative; top: -5%; overflow-x: hidden; overflow-y: scroll; height: 8em; width: 10.5em;">
         <b>Atua&ccedil;&atilde;o de The National adiada</b>
         <br>
@@ -234,7 +234,7 @@
       </div>
     </div>
     <div id="NewsArtist4" class="Altdiv" style="background-color: #b9cf6e;">
-      <img src="Media/HighBattery.png" style="position: relative; left: 40.5%">
+      <img src="HighBattery.png" style="position: relative; left: 40.5%">
       <div id="NewsScroll4" style="position: relative; top: -5%; overflow-x: hidden; overflow-y: scroll; height: 8em; width: 10.5em;">
         <b>Banda Whitney promete tocar novas m&uacute;sicas</b>
         <br>
@@ -245,7 +245,7 @@
       </div>
     </div>
     <div id="Playbill" class="Altdiv" style="background-color: #b9cf6e;">
-      <img src="Media/HighBattery.png" style="position: relative; left: 40.5%">
+      <img src="HighBattery.png" style="position: relative; left: 40.5%">
       <div id="PlaybillScroll" style="text-align: left; position: relative; top: -5%; overflow-x: hidden; overflow-y: scroll; height: 8em; width: 10.5em;">
         <p style="font-size: 0.9em; text-align: right; position: relative; top: 5%; left: -3%;">Seguir</p>
         <hr />
@@ -256,16 +256,16 @@
         <p onclick="Switch(Playbill, Artist3);" style="font-size: 1.1em; position: relative; left: 5%;"><ins>King Krule</ins></p>
         <hr />
         <p onclick="Switch(Playbill, Artist4);" style="font-size: 1.1em; position: relative; left: 5%;"><ins>Whitney</ins></p>
-        <img id="ArtistBox1" src="Media/Box.png" onclick="followArtist(1);" style="height: 1.5em; width: 1.5em; position: relative; top: -109%; left: 78.5%;">
-        <img id="ArtistBox2" src="Media/Box.png" onclick="followArtist(2);" style="height: 1.5em; width: 1.5em; position: relative; top: -78%; left: 60%;">
-        <img id="ArtistBox3" src="Media/Box.png" onclick="followArtist(3);" style="height: 1.5em; width: 1.5em; position: relative; top: -47.5%; left: 41.5%;">
-        <img id="ArtistBox4" src="Media/Box.png" onclick="followArtist(4);" style="height: 1.5em; width: 1.5em; position: relative; top: -17%; left: 23%;">
+        <img id="ArtistBox1" src="Box.png" onclick="followArtist(1);" style="height: 1.5em; width: 1.5em; position: relative; top: -109%; left: 78.5%;">
+        <img id="ArtistBox2" src="Box.png" onclick="followArtist(2);" style="height: 1.5em; width: 1.5em; position: relative; top: -78%; left: 60%;">
+        <img id="ArtistBox3" src="Box.png" onclick="followArtist(3);" style="height: 1.5em; width: 1.5em; position: relative; top: -47.5%; left: 41.5%;">
+        <img id="ArtistBox4" src="Box.png" onclick="followArtist(4);" style="height: 1.5em; width: 1.5em; position: relative; top: -17%; left: 23%;">
       </div>
     </div>
     <div id="Artist1" class="Altdiv" style="background-color: black;">
-      <img src="Media/HighBattery.png" style="position: relative; left: 40.5%">
+      <img src="HighBattery.png" style="position: relative; left: 40.5%">
       <div id="ArtistScroll1" style="overflow-x: hidden; overflow-y: scroll; height: 8em; width: 10.5em; position: relative; top: -5%;">
-        <img src="Media/Voxtrot.JPG" style="height: 7em; width:7em;">
+        <img src="Voxtrot.JPG" style="height: 7em; width:7em;">
         <b style="font-size: 1em; color: #b9cf6e; position: relative; ">Voxtrot</b>
         <br>
         <br>
@@ -283,9 +283,9 @@
       </div>
     </div>
     <div id="Artist2" class="Altdiv" style="background-color: black;">
-      <img src="Media/HighBattery.png" style="position: relative; left: 40.5%">
+      <img src="HighBattery.png" style="position: relative; left: 40.5%">
       <div id="ArtistScroll2" style="overflow-x: hidden; overflow-y: scroll; height: 8em; width: 10.5em; position: relative; top: -5%;">
-        <img src="MEdia/The National.JPG" style="height: 7em; width:7em;">
+        <img src="The National.JPG" style="height: 7em; width:7em;">
         <br>
         <b style="font-size: 1em; color: #b9cf6e; position: relative; ">The National</b>
         <br>
@@ -304,9 +304,9 @@
       </div>
     </div>
     <div id="Artist3" class="Altdiv" style="background-color: black;">
-      <img src="Media/HighBattery.png" style="position: relative; left: 40.5%">
+      <img src="HighBattery.png" style="position: relative; left: 40.5%">
       <div id="ArtistScroll3" style="overflow-x: hidden; overflow-y: scroll; height: 8em; width: 10.5em; position: relative; top: -5%;">
-        <img src="Media/King Krule.JPG" style="height: 7em; width:7em;">
+        <img src="King Krule.JPG" style="height: 7em; width:7em;">
         <b style="font-size: 1em; color: #b9cf6e; position: relative; ">King Krule</b>
         <br>
         <br>
@@ -324,9 +324,9 @@
       </div>
     </div>
     <div id="Artist4" class="Altdiv" style="background-color: black;">
-      <img src="Media/HighBattery.png" style="position: relative; left: 40.5%">
+      <img src="HighBattery.png" style="position: relative; left: 40.5%">
       <div id="ArtistScroll4" style="overflow-x: hidden; overflow-y: scroll; height: 8em; width: 10.5em; position: relative; top: -5%;">
-        <img src="Media/Whitney.JPG" style="height: 7em; width:7em;">
+        <img src="Whitney.JPG" style="height: 7em; width:7em;">
         <b style="font-size: 1em; color: #b9cf6e; position: relative; ">Whitney</b>
         <br>
         <br>
@@ -346,13 +346,13 @@
 
     <!-- Ecrã de Definições -->
     <div id="Settings" class="Altdiv" style="background-color: #d1d1e0;">
-      <img src="Media/HighBattery.png" style="position: relative; top: -1.5%; left: 40.5%">
+      <img src="HighBattery.png" style="position: relative; left: 40.5%">
       <hr />
       <b style="text-align: left; font-size: 1em; position: relative; left: -15%;">Localiza&ccedil;&atilde;o</b>
       <hr />
-      <img id="LocationSlider" src="Media/SliderLeft-icon.png" onclick="changeLocationStatus();" style="height: 2em; width: 2em; position: relative; top: -29%; left: 34%;">
+      <img id="LocationSlider" src="SliderLeft-icon.png" onclick="changeLocationStatus();" style="height: 2em; width: 2em; position: relative; top: -29%; left: 34%;">
     </div>
   </div>
-  <img src="Media/Strap texture.JPG" style="position: absolute; top: 59%; left: 46.9%; height: 25em; width: 7.5em;z-index: -5;">
+  <img src="Strap texture.JPG" style="position: absolute; top: 59%; left: 46.9%; height: 25em; width: 7.5em;z-index: -5;">
 </body>
 </html>
